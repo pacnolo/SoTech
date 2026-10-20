@@ -17,7 +17,7 @@ window.pacnoloQuotes = function initQuotes() {
     const service=serviceEl.value,detail=el('quote-detail').value.trim(),timeline=el('quote-timeline').value;
     if(!name||!service||!detail)return;
     const message=[
-      'Hola, PACNOLO Tech. Quiero solicitar una cotización.',
+      'Hola, Pacno Tech. Quiero solicitar una cotización.',
       '',`Nombre: ${name}`,
       `Negocio: ${business||'No especificado'}`,
       `Servicio: ${service}`,

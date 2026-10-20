@@ -126,23 +126,48 @@
 .section-fold-summary .fold-index::before,.section-fold-summary .fold-index::after{content:none!important}
 
 
-/* Chispa global: dimensiones reducidas para evitar tapar controles móviles. */
-@media(max-width:600px){
- .chispa-companion{left:10px;bottom:14px;width:124px}
- .chispa-dock{width:124px;min-height:108px}
- .chispa-dock-tools{padding:2px 3px;gap:1px;top:0}
- .chispa-dock-tool{width:23px;height:24px;font-size:17px}
- .chispa-dock-face{width:81px;height:77px;margin:33px 0 0 -1px}
- .chispa-dock-speech{top:26px;left:61px;max-width:116px;min-width:80px;padding:6px 7px;font-size:9.5px}
- .chispa-dock-mini,.chispa-dock-restore{padding:8px 10px;font-size:10px}
+/* PACNOLO 3.8 — Chispa más visible en móvil, con recorte seguro y sin controles. */
+@media(max-width:620px){
+ .chispa-intro{grid-template-columns:minmax(0,1fr) 154px;min-height:168px;padding:12px 8px 12px 12px}
+ .chispa-stage,.chispa-touch{width:154px;height:154px}
+ .chispa-intro-copy h2{font-size:clamp(1.06rem,4.55vw,1.37rem)}
+ .chispa-intro-copy p{font-size:10px}
+ .chispa-companion{left:8px;bottom:max(13px,env(safe-area-inset-bottom));width:128px}
+ .chispa-dock{height:127px}
+ .chispa-dock-face{width:120px;height:120px;bottom:0}
+ .chispa-dock-speech{left:85px;top:5px;min-width:80px;max-width:min(147px,calc(100vw - 111px));font-size:10px;padding:7px 9px}
+ .chispa-companion.is-ui-busy .chispa-dock,.chispa-companion.is-form-active .chispa-dock{height:62px}
+ .chispa-companion.is-ui-busy .chispa-dock-face,.chispa-companion.is-form-active .chispa-dock-face{width:58px;height:58px}
 }
-@media(max-width:350px){.chispa-dock-speech{max-width:100px;font-size:9px}.chispa-dock-face{width:73px;height:69px}}
-
-/* En demos y cotizaciones Chispa se hace pequeña para no cubrir campos ni acciones. */
-@media(max-width:600px){
- .chispa-companion.is-ui-busy[data-state="expanded"] .chispa-dock{display:none}
- .chispa-companion.is-ui-busy[data-state="expanded"] .chispa-dock-mini{display:inline-flex}
- .chispa-companion.is-ui-busy[data-state="expanded"]{width:auto}
+@media(max-width:360px){
+ .chispa-intro{grid-template-columns:minmax(0,1fr) 127px;padding:10px 7px 10px 10px}
+ .chispa-stage,.chispa-touch{width:127px;height:132px}
+ .chispa-companion{left:6px;width:111px}
+ .chispa-dock{height:112px}
+ .chispa-dock-face{width:107px;height:107px}
+ .chispa-dock-speech{left:75px;font-size:9px;max-width:min(132px,calc(100vw - 95px))}
 }
 
-@media(max-width:600px){.chispa-companion .chispa-dock-speech{left:3px;top:-37px;max-width:126px}}
+
+/* PACNO Tech v4.3 responsive */
+@media(max-width:1100px){.overview-matrix{grid-template-columns:repeat(2,minmax(0,1fr))}.overview-banner-grid{grid-template-columns:1fr}.overview-points{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.brand img{width:64px;height:64px}.brand-name{font-size:25px}.brand-name small{font-size:8.4px;letter-spacing:.24em}.footer-brand img{width:70px;height:70px}.footer-brand .brand-name{font-size:24px}.overview-section{padding:18px 0 10px}.overview-heading{margin-bottom:14px}.overview-banner{padding:16px 14px 14px;border-radius:18px}.overview-banner-head{gap:10px}.overview-banner-close{width:36px;height:36px;font-size:24px}.overview-banner-head h3{font-size:1.22rem}.overview-banner-grid{margin-top:14px;gap:12px}.overview-points{grid-template-columns:1fr;gap:8px}.overview-points li{padding:10px 11px;font-size:13px}.overview-matrix{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.overview-card{min-height:132px;padding:14px 12px;border-radius:16px}.overview-card-icon{width:36px;height:36px;border-radius:12px;font-size:17px}.overview-card strong{font-size:14px}.overview-card small{font-size:11px}}
+@media(max-width:370px){.overview-card{min-height:126px;padding:13px 10px}.overview-card strong{font-size:13px}.overview-card small{font-size:10px}}
+
+
+@media(max-width:1100px){.overview-modal-panel{width:min(84vw,980px);height:min(78vh,760px)}.overview-banner-grid{grid-template-columns:1fr}.overview-banner-actions{position:static}.overview-points{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.brand img{width:72px;height:72px}.footer-brand img{width:76px;height:76px}.overview-heading .section-eyebrow{font-size:1.05rem;letter-spacing:.06em}.overview-heading h2{font-size:.95rem;max-width:320px}.overview-matrix{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.overview-card{min-height:138px}.overview-modal-panel{width:92vw;height:75vh;margin:8vh auto 0;border-radius:22px}.overview-modal-content{padding:18px 16px 18px}.overview-modal-close{top:12px;right:12px;width:40px;height:40px;font-size:24px}.overview-banner-head{padding-right:44px}.overview-banner-head h3{font-size:1.42rem;margin:8px 0}.overview-banner-head p{font-size:.95rem;line-height:1.6}.overview-banner-grid{gap:14px;margin-top:14px}.overview-points{grid-template-columns:1fr;gap:9px}.overview-points li{padding:12px 12px;font-size:13px}.overview-banner-actions .btn{width:100%;justify-content:center}}
+
+
+/* Pacno Tech 4.6: ventana grande adaptativa en pantallas pequeñas */
+@media(max-width:800px){
+ .overview-modal-panel{width:92vw;height:83dvh;max-height:83dvh;margin:8.5dvh auto 0}
+ body.section-modal-open .main-section-fold[open]{top:8.5dvh!important;left:4vw!important;width:92vw!important;height:83dvh!important;border-radius:17px!important}
+ body.section-modal-open .main-section-fold[open]>.section-fold-summary{padding:13px 58px 13px 15px!important;min-height:72px!important}
+ body.section-modal-open .main-section-fold[open]>.section-fold-content{padding:16px 14px 22px!important;scrollbar-gutter:auto}
+ body.section-modal-open .main-section-fold[open]>.section-fold-content.process-grid{grid-template-columns:1fr!important}
+ body.section-modal-open .main-section-fold[open]>.section-fold-summary strong{font-size:16px!important}
+ .section-modal-close{top:14px;right:13px;width:40px;height:40px}
+ .overview-modal-panel .overview-banner-grid{grid-template-columns:1fr}
+}
+@media(max-width:400px){.overview-modal-panel{width:94vw;margin:8.5dvh auto 0}body.section-modal-open .main-section-fold[open]{left:3vw!important;width:94vw!important}}

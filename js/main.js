@@ -1,4 +1,4 @@
-/* PACNOLO Tech — navegación, apariencia y orquestación de demos. */
+/* Pacno Tech — navegación, apariencia y orquestación de demos. */
 (function(){
   'use strict';
   const body=document.body;
@@ -33,34 +33,6 @@
   menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
   window.addEventListener('resize',()=>{if(window.innerWidth>1020)closeMenu();});
   document.addEventListener('keydown',event=>{if(event.key==='Escape')closeMenu();});
-  // Las demos se instancian una sola vez para conservar su estado al cambiar de pestaña.
-  const demos=window.PacnoloDemos||{};
-  Object.entries(demos).forEach(([name,init])=>{
-    try{init();}catch(error){console.error(`No se pudo iniciar la demo ${name}`,error);}
-  });
-  const tabs=[...document.querySelectorAll('.demo-tab')];
-  function activateTab(tab,focus){
-    tabs.forEach(t=>{
-      const active=t===tab;
-      t.classList.toggle('active',active);
-      t.setAttribute('aria-selected',String(active));t.tabIndex=active?0:-1;
-      document.getElementById('panel-'+t.dataset.demo).hidden=!active;
-    });
-    if(focus)tab.focus();
-  }
-  tabs.forEach((tab,index)=>{
-    tab.addEventListener('click',()=>activateTab(tab,false));
-    tab.addEventListener('keydown',event=>{
-      if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;
-      event.preventDefault();
-      let next=index;
-      if(event.key==='ArrowRight')next=(index+1)%tabs.length;
-      if(event.key==='ArrowLeft')next=(index-1+tabs.length)%tabs.length;
-      if(event.key==='Home')next=0;
-      if(event.key==='End')next=tabs.length-1;
-      activateTab(tabs[next],true);
-    });
-  });
   // Las secciones se abren por su título, y también al seguir un vínculo del menú.
   function openSectionForHash(hash){
     if(!hash||hash[0]!=='#')return;
@@ -99,20 +71,13 @@
     const companion=document.createElement('aside');
     companion.id='chispa-companion';
     companion.className='chispa-companion is-offscreen';
-    companion.dataset.state='expanded';
-    companion.setAttribute('aria-label','Chispa, asistente visual de PACNOLO Tech');
+    companion.setAttribute('aria-label','Chispa, asistente visual de Pacno Tech');
     companion.innerHTML=`
       <div class="chispa-dock">
-        <div class="chispa-dock-tools" role="group" aria-label="Controles de Chispa">
-          <button type="button" class="chispa-dock-tool" data-chispa-action="motion" aria-label="Pausar animación de Chispa" title="Pausar animación">Ⅱ</button>
-          <button type="button" class="chispa-dock-tool" data-chispa-action="minimize" aria-label="Minimizar a Chispa" title="Minimizar">−</button>
-          <button type="button" class="chispa-dock-tool" data-chispa-action="close" aria-label="Ocultar temporalmente a Chispa" title="Ocultar temporalmente">×</button>
-        </div>
+        <div class="chispa-dock-aura" aria-hidden="true"></div>
         <div class="chispa-dock-speech" id="chispa-dock-speech">¡Hola! Soy Chispa ✨</div>
         <button type="button" class="chispa-dock-face" aria-label="Saludar a Chispa" title="Saludar a Chispa"></button>
-      </div>
-      <button class="chispa-dock-mini" type="button" aria-label="Expandir a Chispa" title="Expandir a Chispa"><span aria-hidden="true">✦</span> Chispa</button>
-      <button class="chispa-dock-restore" type="button" aria-label="Mostrar de nuevo a Chispa" title="Mostrar a Chispa"><span aria-hidden="true">✦</span> Mostrar Chispa</button>`;
+      </div>`;
     const art=chispaButton.querySelector('svg').cloneNode(true);
     art.setAttribute('aria-hidden','true');
     art.removeAttribute('aria-label');
@@ -136,52 +101,27 @@
     document.body.appendChild(companion);
 
     const speech=companion.querySelector('#chispa-dock-speech');
+    speech.setAttribute('role','status');
+    speech.setAttribute('aria-live','polite');
     const dockFace=companion.querySelector('.chispa-dock-face');
-    const mini=companion.querySelector('.chispa-dock-mini');
-    const restore=companion.querySelector('.chispa-dock-restore');
-    const motion=companion.querySelector('[data-chispa-action="motion"]');
     const heroArt=chispaStage;
     let speechTimer;
-    let companionMessage='¡Hola! Soy Chispa ✨';
-    let paused=false;
-    try{paused=localStorage.getItem('pacnolo-chispa-paused')==='yes';}catch(error){}
-    function applyMotion(){
-      body.classList.toggle('chispa-motion-paused',paused);
-      motion.textContent=paused?'▶':'Ⅱ';
-      motion.setAttribute('aria-label',paused?'Reanudar animación de Chispa':'Pausar animación de Chispa');
-      motion.title=paused?'Reanudar animación':'Pausar animación';
-    }
-    applyMotion();
-    const setState=state=>{companion.dataset.state=state;};
-    function showCompanionMessage(message,react=false){
+        function showCompanionMessage(message,react=false){
       if(!message)return;
-      companionMessage=message;
       speech.textContent=message;
       companion.classList.add('has-message');
       clearTimeout(speechTimer);
       companion.classList.remove('is-reacting');
-      if(react&&!paused&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      if(react&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
         void companion.offsetWidth;
         companion.classList.add('is-reacting');
       }
       speechTimer=setTimeout(()=>{
         companion.classList.remove('is-reacting');
         companion.classList.remove('has-message');
-      },4000);
+      },4100);
     }
-    dockFace.addEventListener('click',()=>showCompanionMessage('¡Qué gusto verte! ✨',true));
-    motion.addEventListener('click',()=>{
-      paused=!paused;applyMotion();
-      try{localStorage.setItem('pacnolo-chispa-paused',paused?'yes':'no');}catch(error){}
-    });
-    companion.querySelector('[data-chispa-action="minimize"]').addEventListener('click',()=>{
-      setState('mini');mini.focus();
-    });
-    companion.querySelector('[data-chispa-action="close"]').addEventListener('click',()=>{
-      setState('closed');restore.focus();
-    });
-    mini.addEventListener('click',()=>{setState('expanded');dockFace.focus();});
-    restore.addEventListener('click',()=>{setState('expanded');dockFace.focus();});
+    dockFace.addEventListener('click',()=>showCompanionMessage('¡Hola! Puedo mostrarte servicios, ejemplos y formas de comenzar.',true));
     // No tapamos el formulario mientras una persona está escribiendo.
     const quoteForm=document.getElementById('quote-form');
     if(quoteForm){
@@ -205,15 +145,28 @@
       heroObserver.observe(heroArt);
       // En móvil, las zonas con formularios y controles reciben prioridad.
       const busyZones=new Map();
+      function refreshBusyZones(){
+        // Una sección cerrada no tiene campos activos y no debe empequeñecer a Chispa.
+        const busy=[...busyZones].some(([id,visible])=>{
+          if(!visible)return false;
+          const section=document.getElementById(id);
+          return !!section?.querySelector('.main-section-fold')?.open;
+        });
+        companion.classList.toggle('is-ui-busy',busy);
+      }
       const busyObserver=new IntersectionObserver(entries=>{
         entries.forEach(entry=>busyZones.set(entry.target.id,entry.isIntersecting));
-        companion.classList.toggle('is-ui-busy',[...busyZones.values()].some(Boolean));
+        refreshBusyZones();
       },{rootMargin:'-12% 0px -15% 0px',threshold:0});
       ['demos','contacto'].forEach(id=>{
-        const zone=document.getElementById(id);if(zone)busyObserver.observe(zone);
+        const zone=document.getElementById(id);
+        if(zone){
+          busyObserver.observe(zone);
+          zone.querySelector('.main-section-fold')?.addEventListener('toggle',refreshBusyZones);
+        }
       });
       // Detecta secciones durante la navegación, además de los clics en acordeones.
-      const currentNames={servicios:'¡Explora nuestros servicios!',demos:'¡Prueba nuestras demos!',paquetes:'¡Mira los paquetes!',proceso:'¡Así trabajamos!',nosotros:'¡Conoce PACNOLO Tech!',contacto:'¡Cuéntanos tu proyecto!'};
+      const currentNames={servicios:'Inventarios, tableros, hojas de cálculo y más.',demos:'Inventarios, automatización, tableros y portales a tu medida.',paquetes:'Hay opciones según el tamaño de tu proyecto.',proceso:'Te explicamos cómo desarrollamos cada solución.',nosotros:'Convertimos tus ideas en herramientas prácticas.',contacto:'Cuéntanos tu idea y recibe orientación.'};
       const sectionsObserver=new IntersectionObserver(entries=>{
         const visible=entries.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio);
         if(visible.length){
@@ -231,7 +184,7 @@
     }
     // Los clics y los enlaces conservan las funciones originales.
     document.querySelectorAll('.demo-tab').forEach(tab=>tab.addEventListener('click',()=>{
-      showCompanionMessage('¡Mira esta demostración! ✨',true);
+      showCompanionMessage('Prueba este ejemplo; funciona con datos ficticios.',true);
     }));
     document.querySelectorAll('#quote-form button[type="submit"]').forEach(button=>button.addEventListener('click',()=>{
       showCompanionMessage('¡Vamos a crear algo juntos! ✨',true);
@@ -254,7 +207,7 @@
       },3200);
     }
     chispaButton.addEventListener('click',()=>chispaReact('¡Me alegra verte! ✨'));
-    const sectionMessages={servicios:'¡Conoce nuestros servicios!',demos:'¡Prueba las demostraciones!',paquetes:'¡Hay una solución para ti!',proceso:'¡Te acompañamos!',nosotros:'¡Somos PACNOLO Tech!',contacto:'¡Cuéntanos tu idea!'};
+    const sectionMessages={servicios:'Control de inventario, Access, presentaciones y proyectos escolares.',demos:'Conoce lo que puede incluir tu proyecto.',paquetes:'Cada proyecto se cotiza según sus necesidades.',proceso:'De tu idea a una herramienta funcionando.',nosotros:'Somos Pacno Tech: soluciones a tu medida.',contacto:'Escríbenos y conversemos sobre tu proyecto.'};
     document.querySelectorAll('.main-section-fold').forEach(section=>section.addEventListener('toggle',()=>{
       if(!section.open)return;
       const name=section.closest('section')?.id||'';
@@ -268,4 +221,113 @@
     document.querySelectorAll('[data-quote-service]').forEach(link=>link.addEventListener('click',()=>chispaReact('¡Vamos a crear algo!')));
   }
   if(typeof window.pacnoloQuotes==='function')window.pacnoloQuotes();
+
+  // Matriz: banner real de 75% en una ventana independiente, no en el flujo de la página.
+  const overviewMatrix=document.getElementById('overview-matrix');
+  const overviewModal=document.getElementById('overview-modal');
+  const summaryCards = {
+    servicios:{title:'Servicios para tu negocio',kicker:'SERVICIOS PRINCIPALES',text:'Creamos soluciones prácticas para organizar tareas, ahorrar tiempo y dar mejor seguimiento a la información de tu negocio o proyecto.',points:['Inventarios, controles y seguimiento de entradas y salidas.','Hojas de cálculo, macros, reportes y formatos automatizados.','Páginas web, portales y formularios adaptados a tu necesidad.','Bases de datos, catálogos y consultas para tener mejor control.'],link:'#servicios'},
+    proceso:{title:'De tu idea a una solución real',kicker:'CÓMO TRABAJAMOS',text:'Primero entendemos el problema, definimos el alcance y desarrollamos una solución funcional contigo.',points:['Escuchamos tu idea y revisamos el proceso actual.','Definimos las funciones, el alcance y los tiempos.','Desarrollamos y validamos avances contigo.','Entregamos y explicamos cómo usar la solución.'],link:'#proceso'},
+    paquetes:{title:'Opciones y precios',kicker:'REFERENCIAS FLEXIBLES',text:'Los precios son puntos de partida para dimensionar tu proyecto, no paquetes rígidos.',points:['Soluciones sencillas para necesidades puntuales.','Opciones de control, reportes y automatización.','Sistemas personalizados para procesos completos.','La propuesta final depende del alcance acordado.'],link:'#paquetes'},
+    alcance:{title:'Alcance de nuestras soluciones',kicker:'POSIBILIDADES DE DESARROLLO',text:'Te mostramos soluciones que pueden adaptarse a tu negocio y sus necesidades.',points:['Sistemas administrativos, inventarios y seguimiento.','Tableros ejecutivos, proyecciones y reportes.','Portales web, catálogos y formularios.','Procesos automatizados y herramientas a medida.'],link:'#demos'},
+    nosotros:{title:'Conoce Pacno Tech',kicker:'QUIÉNES SOMOS',text:'Diseñamos herramientas claras y útiles para negocios, profesionales y proyectos.',points:['Trabajamos según tu forma de operar.','Priorizamos soluciones funcionales y prácticas.','Explicamos cada etapa de manera sencilla.','Evitamos funciones innecesarias.'],link:'#nosotros'},
+    faq:{title:'Preguntas frecuentes',kicker:'RESOLVEMOS TUS DUDAS',text:'Aclara las preguntas más habituales sobre los proyectos antes de comenzar.',points:['No necesitas saber programación.','Los tiempos dependen del alcance.','Los precios son referencias iniciales.','Los cambios se acuerdan antes de implementarlos.'],link:'#preguntas'},
+    contacto:{title:'Cotiza tu proyecto',kicker:'PLATIQUEMOS',text:'Cuéntanos qué necesitas y conoce la forma en que podemos ayudarte.',points:['Describe tu idea o proceso actual.','Recibe orientación directa por WhatsApp.','Definimos alcances antes de cotizar.','El formulario prepara tu mensaje para enviarlo.'],link:'#contacto'},
+    'explora-redes':{title:'Explora',kicker:'REDES Y PROYECTOS',text:'Este espacio será el punto de partida para mostrar nuestras redes y nuevos proyectos.',points:['TikTok, Instagram y Facebook en preparación.','Proyectos terminados se enlazarán más adelante.','Ejemplos reales, conforme se autorice su publicación.','Una muestra de lo que podemos construir.'],link:'#pie-redes'}
+  };
+  let overviewTrigger=null;
+  function closeOverview(restoreFocus=true){
+    if(!overviewModal || overviewModal.hidden)return;
+    overviewModal.hidden=true;
+    overviewModal.setAttribute('aria-hidden','true');
+    document.body.classList.remove('overview-modal-open');
+    overviewMatrix?.querySelectorAll('.overview-card').forEach(card=>card.classList.remove('is-active'));
+    if(restoreFocus && overviewTrigger?.isConnected)overviewTrigger.focus({preventScroll:true});
+  }
+  if(overviewMatrix && overviewModal){
+    const title=document.getElementById('overview-banner-title');
+    const kicker=document.getElementById('overview-banner-kicker');
+    const intro=document.getElementById('overview-banner-text');
+    const points=document.getElementById('overview-banner-points');
+    const destination=document.getElementById('overview-banner-link');
+    const close=document.getElementById('overview-banner-close');
+    function openOverview(key,trigger){
+      const info=summaryCards[key];if(!info)return;
+      overviewTrigger=trigger;
+      title.textContent=info.title;kicker.textContent=info.kicker;intro.textContent=info.text;
+      points.replaceChildren(...info.points.map(point=>{const li=document.createElement('li');li.textContent=point;return li;}));
+      destination.href=info.link;
+      overviewMatrix.querySelectorAll('.overview-card').forEach(card=>card.classList.toggle('is-active',card===trigger));
+      // No dejamos simultáneamente abierta otra sección.
+      document.querySelectorAll('.main-section-fold[open]').forEach(f=>f.open=false);
+      overviewModal.hidden=false;
+      overviewModal.setAttribute('aria-hidden','false');
+      document.body.classList.add('overview-modal-open');
+      close.focus({preventScroll:true});
+    }
+    overviewMatrix.querySelectorAll('.overview-card').forEach(card=>card.addEventListener('click',()=>openOverview(card.dataset.key,card)));
+    close.addEventListener('click',()=>closeOverview());
+    overviewModal.querySelector('[data-overview-close]')?.addEventListener('click',()=>closeOverview());
+    overviewModal.querySelectorAll('a[href^="#"]').forEach(link=>link.addEventListener('click',()=>closeOverview(false)));
+  }
+
+  // Los siete apartados mantienen su DOM, estados de formulario, eventos y contenido.
+  // Solo cambiamos la presentación del <details> abierto por un modal del 75%.
+  const sectionBackdrop=document.getElementById('section-modal-backdrop');
+  const mainSectionFolds=[...document.querySelectorAll('.main-section-fold')];
+  let lastMainTrigger=null;
+  function updateSectionModal(){
+    const open=mainSectionFolds.find(f=>f.open);
+    const active=!!open;
+    document.body.classList.toggle('section-modal-open',active);
+    if(sectionBackdrop)sectionBackdrop.hidden=!active;
+    if(open){
+      open.classList.add('section-modal-active');
+      open.querySelector('.section-modal-close')?.focus({preventScroll:true});
+    }else{
+      mainSectionFolds.forEach(f=>f.classList.remove('section-modal-active'));
+    }
+  }
+  mainSectionFolds.forEach(fold=>{
+    const button=document.createElement('button');button.type='button';
+    button.className='section-modal-close';button.textContent='×';
+    button.setAttribute('aria-label','Cerrar '+(fold.querySelector('.section-fold-summary strong')?.textContent||'apartado'));
+    const content=fold.querySelector(':scope > .section-fold-content');
+    if(content)fold.insertBefore(button,content);else fold.appendChild(button);
+    const summary=fold.querySelector(':scope > summary');
+    summary?.addEventListener('click',()=>{lastMainTrigger=summary;});
+    button.addEventListener('click',()=>{fold.open=false;lastMainTrigger?.focus({preventScroll:true});});
+    fold.addEventListener('toggle',()=>{
+      if(fold.open){
+        closeOverview(false);
+        mainSectionFolds.forEach(other=>{if(other!==fold&&other.open)other.open=false;});
+      }
+      requestAnimationFrame(updateSectionModal);
+    });
+  });
+  sectionBackdrop?.addEventListener('click',()=>{
+    mainSectionFolds.forEach(f=>f.open=false);
+    lastMainTrigger?.focus({preventScroll:true});
+  });
+  document.addEventListener('keydown',event=>{
+    if(event.key==='Escape'){
+      if(overviewModal && !overviewModal.hidden)closeOverview();
+      else if(mainSectionFolds.some(f=>f.open)){
+        mainSectionFolds.forEach(f=>f.open=false);
+        lastMainTrigger?.focus({preventScroll:true});
+      }
+    }
+    // Mantiene el teclado dentro de la ventana activa (accesibilidad).
+    if(event.key!=='Tab')return;
+    const container=(overviewModal&&!overviewModal.hidden)?overviewModal:mainSectionFolds.find(f=>f.open);
+    if(!container)return;
+    const nodes=[...container.querySelectorAll('a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),summary,[tabindex]:not([tabindex="-1"])')]
+      .filter(n=>n.getClientRects().length && getComputedStyle(n).visibility!=='hidden');
+    if(!nodes.length)return;
+    const first=nodes[0],last=nodes[nodes.length-1];
+    if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus();}
+    else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus();}
+  });
+  updateSectionModal();
+
 })();

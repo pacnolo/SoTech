@@ -649,35 +649,153 @@ body[data-theme="dark"] .services-fold-content .services-showcase-accordion{back
 @media(prefers-reduced-motion:reduce){.chispa-illustration,.chispa-flame-group,.chispa-hand-right,.chispa-eyes,.chispa-ring,.chispa-particles,.chispa-glow,.chispa-stage.is-reacting .chispa-illustration,.chispa-stage.is-reacting .chispa-particles{animation:none!important}.chispa-bubble{transition:none!important}}
 
 
-/* Chispa global: figura flotante discreta, independiente de WhatsApp. */
-.chispa-companion{position:fixed;z-index:100;left:16px;bottom:18px;width:166px;pointer-events:none;opacity:1;visibility:visible;transform:translateY(0);transition:opacity .24s ease,transform .24s ease,visibility .24s ease}
-.chispa-companion.is-offscreen{opacity:0;visibility:hidden;transform:translateY(14px)}
-.chispa-dock{position:relative;width:166px;min-height:150px;pointer-events:none;filter:drop-shadow(0 7px 16px rgba(7,54,63,.25))}
-.chispa-dock-tools{display:flex;position:absolute;z-index:3;top:0;left:0;gap:4px;border-radius:22px;padding:3px 4px;background:rgba(255,255,255,.96);border:1px solid #bde5e5;box-shadow:0 2px 10px rgba(8,70,70,.1);pointer-events:auto}
-.chispa-dock-tool{display:grid;place-items:center;height:26px;width:27px;border:0;border-radius:50%;background:transparent;color:#0b5660;font-size:19px;font-weight:600;cursor:pointer;line-height:1}
-.chispa-dock-tool:hover,.chispa-dock-tool:focus-visible{background:#d9f8f5;outline:2px solid transparent}
-.chispa-dock-speech{position:absolute;top:35px;left:70px;z-index:2;min-width:90px;max-width:146px;width:max-content;padding:8px 10px;border:1px solid #a4e6de;border-radius:14px 14px 13px 4px;background:rgba(255,255,255,.98);color:#074956;font-size:11px;line-height:1.25;font-weight:700;text-align:left;box-shadow:0 7px 18px rgba(7,60,70,.14);pointer-events:none}
-.chispa-dock-face{position:relative;display:block;width:112px;height:108px;margin:40px 0 0 -4px;border:0;padding:0;background:transparent;cursor:pointer;pointer-events:auto}
-.chispa-dock-face .chispa-illustration{display:block;width:100%;height:100%;overflow:visible;filter:drop-shadow(0 5px 9px rgba(0,203,228,.32));animation:chispa-floating 4.6s ease-in-out infinite}
-.chispa-dock-face:hover .chispa-illustration{filter:drop-shadow(0 5px 14px rgba(0,240,247,.60))}
+/* PACNOLO 3.8 — Chispa flotante sin controles, visible en todo el recorrido. */
+.chispa-companion{position:fixed;left:18px;bottom:max(16px,env(safe-area-inset-bottom));z-index:100;width:148px;pointer-events:none;opacity:1;visibility:visible;transform:translateY(0);transition:opacity .24s ease,transform .24s ease,visibility .24s ease}
+.chispa-companion.is-offscreen{opacity:0;visibility:hidden;transform:translateY(12px)}
+.chispa-dock{position:relative;width:100%;height:144px;pointer-events:none;isolation:isolate}
+.chispa-dock-aura{position:absolute;inset:15px 5px 0 0;border-radius:50%;background:radial-gradient(circle,rgba(50,249,244,.28) 0%,rgba(22,209,236,.12) 47%,transparent 72%);filter:blur(5px);animation:chispa-aura 5s ease-in-out infinite;pointer-events:none}
+.chispa-dock-face{position:absolute;left:0;bottom:0;width:136px;height:136px;border:0;padding:0;background:transparent;cursor:pointer;pointer-events:auto;filter:drop-shadow(0 7px 9px rgba(3,77,101,.32))}
+.chispa-dock-face .chispa-illustration{display:block;width:100%;height:100%;overflow:visible;animation:chispa-floating 4.6s ease-in-out infinite}
+.chispa-dock-face:hover .chispa-illustration{filter:drop-shadow(0 5px 12px rgba(0,240,247,.48))}
 .chispa-companion.is-reacting .chispa-dock-face .chispa-illustration{animation:chispa-celebrate .62s ease-out 1}
-.chispa-dock-mini,.chispa-dock-restore{display:none;pointer-events:auto;align-items:center;gap:7px;border:1px solid #a7e9e0;background:#0b3d4a;color:#efffff;box-shadow:0 7px 18px rgba(7,62,69,.23);padding:9px 12px;font-size:12px;font-weight:700;border-radius:999px;white-space:nowrap;cursor:pointer}
-.chispa-dock-mini span,.chispa-dock-restore span{color:#5bfff1;font-size:18px;line-height:.7}
-.chispa-companion[data-state="mini"] .chispa-dock,.chispa-companion[data-state="closed"] .chispa-dock{display:none}
-.chispa-companion[data-state="mini"] .chispa-dock-mini{display:inline-flex}
-.chispa-companion[data-state="closed"] .chispa-dock-restore{display:inline-flex}
-.chispa-companion[data-state="mini"],.chispa-companion[data-state="closed"]{width:auto}
-.chispa-companion.is-form-active[data-state="expanded"] .chispa-dock{display:none}
-.chispa-companion.is-form-active[data-state="expanded"] .chispa-dock-mini{display:inline-flex}
-.chispa-companion.is-form-active[data-state="expanded"]{width:auto}
-.chispa-companion button:focus-visible{outline:2px solid #04a99d;outline-offset:3px}
-body[data-theme="dark"] .chispa-dock-tools{background:#153b46;border-color:#397e85}
-body[data-theme="dark"] .chispa-dock-tool{color:#b5fff6}
-body[data-theme="dark"] .chispa-dock-speech{background:#123b46;border-color:#44989b;color:#e5fffe}
-body.chispa-motion-paused .chispa-illustration,body.chispa-motion-paused .chispa-flame-group,body.chispa-motion-paused .chispa-hand-right,body.chispa-motion-paused .chispa-eyes,body.chispa-motion-paused .chispa-ring,body.chispa-motion-paused .chispa-particles,body.chispa-motion-paused .chispa-glow{animation:none!important}
-@media(prefers-reduced-motion:reduce){.chispa-companion{transition:none!important}.chispa-companion .chispa-illustration,.chispa-companion .chispa-flame-group,.chispa-companion .chispa-hand-right,.chispa-companion .chispa-eyes,.chispa-companion .chispa-ring,.chispa-companion .chispa-particles{animation:none!important}}
-
-/* La burbuja aparece al interactuar y luego se retira para no tapar contenido. */
-.chispa-companion .chispa-dock-speech{left:4px;top:-42px;opacity:0;visibility:hidden;transform:translateY(5px);transition:opacity .22s ease,transform .22s ease,visibility .22s ease}
+.chispa-dock-speech{position:absolute;z-index:2;left:104px;top:0;min-width:95px;max-width:150px;width:max-content;padding:9px 11px;border:1px solid #a4e6de;border-radius:14px 14px 14px 4px;background:#fff;color:#074956;font-size:11px;line-height:1.3;font-weight:800;box-shadow:0 7px 17px rgba(7,60,70,.17);pointer-events:none;opacity:0;visibility:hidden;transform:translateY(5px);transition:opacity .2s ease,transform .2s ease,visibility .2s ease}
 .chispa-companion.has-message .chispa-dock-speech{opacity:1;visibility:visible;transform:translateY(0)}
-@media(prefers-reduced-motion:reduce){.chispa-companion .chispa-dock-speech{transition:none!important}}
+.chispa-companion button:focus-visible{outline:2px solid #04a99d;outline-offset:3px;border-radius:50%}
+/* Frente a formularios y demos mantiene presencia sin tapar controles. */
+.chispa-companion.is-ui-busy .chispa-dock-face,.chispa-companion.is-form-active .chispa-dock-face{width:66px;height:66px;opacity:.85}
+.chispa-companion.is-ui-busy .chispa-dock,.chispa-companion.is-form-active .chispa-dock{height:72px}
+.chispa-companion.is-ui-busy .chispa-dock-aura,.chispa-companion.is-form-active .chispa-dock-aura{display:none}
+.chispa-companion.is-ui-busy .chispa-dock-speech,.chispa-companion.is-form-active .chispa-dock-speech{display:none}
+body[data-theme="dark"] .chispa-dock-speech{background:#123b46;border-color:#44989b;color:#e5fffe}
+@media(prefers-reduced-motion:reduce){.chispa-companion,.chispa-dock-speech{transition:none!important}.chispa-companion .chispa-illustration,.chispa-companion .chispa-flame-group,.chispa-companion .chispa-hand-right,.chispa-companion .chispa-eyes,.chispa-companion .chispa-ring,.chispa-companion .chispa-particles,.chispa-companion .chispa-dock-aura{animation:none!important}}
+/* Ajuste de foco visual: la navegación inicia en servicios, no en demostraciones. */
+.hero-buttons .btn-primary{box-shadow:0 8px 22px rgba(4,169,157,.14)}
+.services-section .section-fold-summary .fold-description{max-width:360px}
+
+
+/* PACNOLO 3.9 — El globo informativo permanece; la barra de controles antigua no. */
+#chispa-companion .chispa-dock-tools,
+#chispa-companion .chispa-dock-tool,
+#chispa-companion .chispa-dock-mini,
+#chispa-companion .chispa-dock-restore {display:none!important}
+/* Mientras se exploran demostraciones se mantiene el mensaje; al escribir no se tapa el formulario. */
+.chispa-companion.is-ui-busy .chispa-dock-speech {display:block;left:52px;top:-24px;max-width:146px}
+.chispa-companion.is-form-active .chispa-dock-speech {display:none}
+@media(max-width:620px){
+ .chispa-companion.is-ui-busy .chispa-dock-speech{left:50px;top:-35px;max-width:min(144px,calc(100vw - 85px));font-size:10px}
+}
+
+/* PACNOLO 4.0 — Ventajas concretas en servicios y presentación. */
+.service-usecases{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 13px}
+.service-usecases span{display:inline-flex;align-items:center;min-height:25px;padding:5px 9px;border:1px solid rgba(22,142,136,.16);border-radius:100px;background:rgba(21,169,151,.07);color:#176b68;font-size:10px;font-weight:750;letter-spacing:0;line-height:1.25}
+body[data-theme="dark"] .service-usecases span{border-color:#2e6a71;background:rgba(44,181,167,.15);color:#b9f1ea}
+.about-card .about-promise{margin-top:11px;color:#def5ed;font-size:13px;line-height:1.78}
+.about-benefits{display:flex;flex-wrap:wrap;gap:9px;margin-top:19px}
+.about-benefits span{display:inline-flex;align-items:center;min-height:31px;padding:7px 12px;border-radius:9px;background:rgba(103,219,188,.10);border:1px solid rgba(134,229,203,.17);color:#d7f8ec;font-size:11px;font-weight:750;line-height:1.35}
+@media(max-width:620px){.service-usecases{margin-bottom:10px;gap:5px}.service-usecases span{padding:4px 7px;font-size:9px;min-height:22px}.about-card .about-promise{font-size:12px}.about-benefits{gap:6px}.about-benefits span{font-size:10px;padding:6px 9px}}
+
+
+/* PACNOLO Tech v4.2 — Branding ampliado, fichas de alcance y redes sociales. */
+.site-header .header-inner{min-height:78px;height:auto;padding-top:9px;padding-bottom:9px}
+.site-header .brand{gap:12px;min-width:0}
+.site-header .brand img{width:56px;height:56px;flex:none}
+.site-header .brand-name{font-size:clamp(21px,1.85vw,25px);padding-bottom:17px;letter-spacing:-.055em;white-space:nowrap}
+.site-header .brand-name small{font-size:8.2px;letter-spacing:.11em;bottom:2px}
+.site-header .header-actions{flex-shrink:0}
+.site-footer .footer-brand{gap:13px}
+.site-footer .footer-brand img{width:62px;height:62px}
+.site-footer .footer-brand .brand-name{font-size:24px;padding-bottom:17px}
+.site-footer .footer-brand .brand-name small{font-size:8px;letter-spacing:.12em}
+.site-footer .footer-main{grid-template-columns:minmax(0,1.4fr) minmax(165px,.6fr) minmax(180px,.75fr);gap:32px;align-items:start}
+.site-footer .footer-main>div:first-child{min-width:0}
+.footer-social{display:flex;flex-direction:column;gap:12px}
+.footer-social strong{margin:0}
+.social-icons{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.social-icon{width:42px;height:42px;display:grid;place-items:center;color:#c8f8ee;background:rgba(71,200,177,.09);border:1px solid rgba(156,226,214,.26);border-radius:12px;cursor:default}
+.social-icon svg{width:21px;height:21px}
+.footer-social small{color:#9db9b4;font-size:11px;line-height:1.4}
+/* Alcance real en lugar de simulaciones interactivas. */
+.solution-fold-content{padding:25px clamp(13px,3vw,35px) 30px}
+.solutions-intro{max-width:850px;margin:0 0 21px}
+.solutions-intro h2{font-size:clamp(1.4rem,3.3vw,2.25rem);line-height:1.15;margin:9px 0 13px;letter-spacing:-.035em}
+.solutions-intro h2 span{color:var(--brand)}
+.solutions-intro p{font-size:13px;color:var(--muted);line-height:1.75;margin:0}
+.solution-scope-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.solution-scope-card{min-width:0;padding:22px 20px 19px;border:1px solid var(--line);background:var(--surface);border-radius:16px;display:flex;flex-direction:column;gap:13px;box-shadow:0 10px 30px rgba(11,61,74,.045)}
+.solution-scope-icon{display:grid;place-items:center;width:45px;height:45px;border-radius:13px;background:var(--brand-light);color:var(--brand-dark);font-weight:900;font-size:24px}
+.solution-scope-copy{display:flex;flex:1;flex-direction:column;min-width:0}
+.solution-scope-kicker{font-size:9px;letter-spacing:.13em;font-weight:850;color:var(--brand);line-height:1.5}
+.solution-scope-card h3{font-size:17px;line-height:1.25;margin:7px 0 9px;letter-spacing:-.015em;color:var(--ink)}
+.solution-scope-card p{font-size:12px;line-height:1.65;color:var(--muted);margin:0 0 11px}
+.solution-scope-card ul{padding:0;margin:0 0 19px;list-style:none;display:flex;flex-direction:column;gap:8px}
+.solution-scope-card li{position:relative;padding-left:17px;line-height:1.45;font-size:11.5px;color:var(--ink)}
+.solution-scope-card li:before{content:'✓';position:absolute;left:0;top:0;color:var(--brand);font-weight:900}
+.solution-scope-card a{margin-top:auto;border-top:1px solid var(--line);padding-top:12px;color:var(--brand);font-size:11.5px;line-height:1.35;font-weight:850}
+.solution-scope-card a:hover{text-decoration:underline}
+.portfolio-next{display:grid;grid-template-columns:50px minmax(0,1fr) auto;align-items:center;gap:17px;margin-top:18px;padding:20px;border:1px dashed rgba(12,148,145,.43);background:var(--surface2);border-radius:16px}
+.portfolio-next-icon{display:grid;place-items:center;width:48px;height:48px;border-radius:13px;background:var(--surface);color:var(--brand);font-size:28px;font-weight:900}
+.portfolio-next h3{margin:4px 0 5px;font-size:17px;color:var(--ink)}
+.portfolio-next p{max-width:620px;margin:0;font-size:12px;color:var(--muted);line-height:1.6}
+body[data-theme="dark"] .solution-scope-card{box-shadow:none}
+body[data-theme="dark"] .solution-scope-icon{background:#204f4c;color:#80e9d6}
+body[data-theme="dark"] .portfolio-next{border-color:#457b80}
+@media(max-width:1090px){.solution-scope-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:1020px){.site-header .header-inner{min-height:75px}.portfolio-next{grid-template-columns:48px minmax(0,1fr)}.portfolio-next .btn{grid-column:2;justify-self:start}}
+@media(max-width:720px){.site-footer .footer-main{grid-template-columns:1fr 1fr;gap:23px}.site-footer .footer-main>div:first-child{grid-column:1/-1}.site-header .brand img{width:49px;height:49px}.site-header .brand-name{font-size:21px}.site-header .brand-name small{font-size:7px}.site-header .header-inner{min-height:69px}.solution-scope-grid{grid-template-columns:1fr}.solution-scope-card{padding:18px;gap:9px}.solution-fold-content{padding:15px 12px 18px}.portfolio-next{grid-template-columns:1fr;gap:11px;padding:17px}.portfolio-next .btn{grid-column:1}.portfolio-next-icon{display:none}}
+@media(max-width:370px){.site-header .brand{gap:7px}.site-header .brand img{width:44px;height:44px}.site-header .brand-name{font-size:18px;padding-bottom:15px}.site-header .brand-name small{font-size:6.3px;letter-spacing:.07em}.site-header .header-actions{gap:5px}.site-header .icon-button{width:36px;height:36px}.site-footer .footer-brand img{width:53px;height:53px}.site-footer .footer-brand .brand-name{font-size:21px}.site-footer .footer-brand .brand-name small{font-size:7px}}
+
+
+/* PACNO Tech v4.3 — marca, matriz de navegación y estilo rock. */
+.announcement{display:none!important}
+.brand{gap:14px}.brand img{width:72px;height:72px}.brand-name{font-size:31px;letter-spacing:-.03em;line-height:.98}.brand-name small{font-size:10px;letter-spacing:.28em;margin-top:8px}.footer-brand img{width:82px;height:82px}.footer-brand .brand-name{font-size:29px}.footer-brand .brand-name small{font-size:10px}
+.hero-benefit-panel .benefit-card-logo .benefit-card-icon{background:linear-gradient(135deg,#ff5b77,#c10031)}
+.overview-section{padding:28px 0 16px}.overview-heading{margin-bottom:18px}.overview-banner{background:linear-gradient(135deg,rgba(12,82,96,.09),rgba(12,82,96,.03));border:1px solid var(--line);border-radius:22px;padding:22px 22px 18px;margin:0 auto 18px;box-shadow:0 18px 48px rgba(8,47,59,.08)}.overview-banner[hidden]{display:none!important}.overview-banner-head{display:flex;gap:16px;justify-content:space-between;align-items:flex-start}.overview-banner-head h3{margin:6px 0 8px;font-size:clamp(1.45rem,2vw,2rem)}.overview-banner-head p{margin:0;color:var(--muted);max-width:760px}.overview-banner-close{border:1px solid var(--line);background:var(--surface);color:var(--text);border-radius:999px;width:42px;height:42px;font-size:28px;line-height:1;cursor:pointer}.overview-banner-grid{display:grid;grid-template-columns:1.4fr .9fr;gap:18px;align-items:start;margin-top:18px}.overview-points{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;list-style:none;padding:0;margin:0}.overview-points li{display:flex;gap:10px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:12px 13px;font-size:14px;line-height:1.45;color:var(--text)}.overview-points li::before{content:'✓';display:inline-flex;align-items:center;justify-content:center;flex:0 0 24px;width:24px;height:24px;border-radius:50%;background:rgba(27,165,157,.14);color:var(--primary);font-weight:900}.overview-banner-actions{display:grid;gap:12px;align-content:start}.overview-matrix{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.overview-card{appearance:none;text-align:left;display:flex;flex-direction:column;gap:7px;min-height:148px;padding:18px 16px;border-radius:20px;border:1px solid var(--line);background:var(--surface);box-shadow:0 10px 28px rgba(11,61,74,.05);cursor:pointer;transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease}.overview-card:hover,.overview-card:focus-visible,.overview-card.is-active{transform:translateY(-2px);border-color:rgba(27,165,157,.48);box-shadow:0 16px 36px rgba(11,61,74,.1);outline:none}.overview-card-icon{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:14px;background:rgba(27,165,157,.12);color:var(--primary);font-size:20px;font-weight:900}.overview-card strong{font-size:16px;line-height:1.25;color:var(--text)}.overview-card small{font-size:12px;line-height:1.5;color:var(--muted)}
+
+
+/* PACNO Tech v4.4 — logo rock inspirado y panel 75% */
+.brand img{width:88px;height:88px;object-fit:contain}.footer-brand img{width:92px;height:92px;object-fit:contain}
+.overview-heading .section-eyebrow{display:block;font-size:clamp(1.35rem,2vw,1.95rem);letter-spacing:.08em;font-weight:900;color:var(--text);margin-bottom:10px}
+.overview-heading h2{font-size:clamp(1rem,1.6vw,1.25rem);font-weight:600;color:var(--muted);margin:0 auto;max-width:780px}
+.overview-heading h2 span{color:inherit}
+.overview-section{padding:26px 0 16px}.overview-heading{margin-bottom:20px}
+.overview-card{min-height:156px}
+.overview-modal[hidden]{display:none!important}
+.overview-modal{position:fixed;inset:0;z-index:1700}
+.overview-modal-backdrop{position:absolute;inset:0;background:rgba(4,24,31,.58);backdrop-filter:blur(4px)}
+.overview-modal-panel{position:relative;width:min(75vw,1100px);height:min(75vh,760px);margin:6vh auto 0;background:var(--surface);border:1px solid rgba(255,255,255,.2);border-radius:28px;box-shadow:0 32px 70px rgba(0,0,0,.28);overflow:hidden}
+.overview-modal-content{height:100%;padding:26px 26px 22px;overflow:auto;background:linear-gradient(180deg,rgba(16,104,121,.07),rgba(255,255,255,.96) 32%)}
+.overview-modal-close{position:absolute;top:16px;right:16px;z-index:2;border:1px solid var(--line);background:var(--surface);color:var(--text);border-radius:999px;width:46px;height:46px;font-size:28px;line-height:1;cursor:pointer;box-shadow:0 8px 20px rgba(8,47,59,.12)}
+.overview-banner-head{padding-right:56px}.overview-banner-head .eyebrow{font-size:.88rem;letter-spacing:.18em}.overview-banner-head h3{font-size:clamp(1.8rem,3vw,2.45rem);margin:10px 0 10px}.overview-banner-head p{font-size:1rem;line-height:1.7;max-width:780px}
+.overview-banner-grid{display:grid;grid-template-columns:1.6fr .9fr;gap:22px;align-items:start;margin-top:20px}
+.overview-points{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.overview-points li{padding:16px 16px;font-size:15px;border-radius:18px;box-shadow:0 10px 26px rgba(8,47,59,.06)}
+.overview-banner-actions{display:grid;gap:14px;align-content:start;position:sticky;top:0}
+.overview-card.is-active{border-color:rgba(27,165,157,.62);box-shadow:0 18px 36px rgba(11,61,74,.16)}
+body.modal-open{overflow:hidden}
+
+
+/* Pacno Tech 4.6: logo aprobado y ventanas reutilizando contenido real de las secciones. */
+.brand img,.footer-brand img{object-fit:cover;border-radius:19px;background:#000}
+body.overview-modal-open,body.section-modal-open{overflow:hidden}
+.overview-modal{z-index:6000}.overview-modal-panel{width:min(75vw,1140px);height:75vh;margin:12.5vh auto 0;display:flex;flex-direction:column}
+.overview-modal-content{overscroll-behavior:contain}
+body[data-theme="dark"] .overview-modal-content{background:linear-gradient(180deg,#16464e,#10353d 38%);color:var(--ink)}
+body[data-theme="dark"] .overview-points li{background:var(--surface);color:var(--ink)}
+.section-modal-backdrop{position:fixed;inset:0;background:rgba(2,20,28,.67);backdrop-filter:blur(6px);z-index:4999}
+.section-modal-backdrop[hidden]{display:none!important}
+body.section-modal-open .main-section-fold[open]{position:fixed!important;top:12.5vh!important;left:12.5vw!important;width:75vw!important;max-width:none!important;height:75vh!important;max-height:none!important;z-index:5000!important;border-radius:22px!important;display:flex!important;flex-direction:column!important;box-shadow:0 35px 90px rgba(0,0,0,.38)!important;overflow:hidden!important;background:var(--surface)!important;transform:none!important;margin:0!important}
+body.section-modal-open .main-section-fold[open]>.section-fold-summary{flex:0 0 auto;padding:17px 78px 17px 22px!important;min-height:76px!important;border-bottom:1px solid var(--line);background:var(--surface)!important}
+body.section-modal-open .main-section-fold[open]>.section-fold-content{display:block!important;flex:1 1 auto!important;min-height:0!important;max-height:none!important;padding:22px 26px 26px!important;overflow:auto!important;overscroll-behavior:contain;scrollbar-gutter:stable}
+body.section-modal-open .main-section-fold[open]>.section-fold-content.process-grid{display:grid!important;grid-template-columns:1fr 1fr!important;align-content:start}
+.section-modal-close{display:none;position:absolute;top:17px;right:19px;width:43px;height:43px;align-items:center;justify-content:center;border-radius:50%;border:1px solid var(--line);background:var(--surface2);color:var(--ink);font-size:25px;line-height:1;z-index:6;box-shadow:0 4px 18px rgba(0,0,0,.08)}
+body.section-modal-open .main-section-fold[open]>.section-modal-close{display:flex}
+body.section-modal-open .main-section-fold[open]>.section-fold-summary .fold-chevron{display:none}
+body.section-modal-open .main-section-fold[open]>.section-fold-content .section-heading{display:block}
+body.section-modal-open .main-section-fold[open]>.section-fold-content .services-showcase{margin:0}
+body.section-modal-open .main-section-fold[open]>.section-fold-content .services-showcase-accordion{min-width:0}
+/* Evita que Chispa tape botones y campos mientras se consulta una ventana */
+body.section-modal-open .chispa-companion,body.overview-modal-open .chispa-companion{opacity:0;pointer-events:none}
+/* Contraste de encabezados de todas las ventanas, incluido Contacto. */
+body.section-modal-open .main-section-fold[open]>.section-fold-summary>strong{color:var(--ink)!important;opacity:1!important}
+body.section-modal-open .main-section-fold[open]>.section-fold-summary>.fold-description{color:var(--muted)!important;opacity:1!important}
+body.section-modal-open .main-section-fold[open]>.section-fold-summary>.fold-index{color:#087f79!important}
