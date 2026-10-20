@@ -1,0 +1,148 @@
+/* PACNOLO Tech — ajustes para tabletas y teléfonos. */
+@media(max-width:1150px){.desktop-nav{gap:13px}.desktop-nav a{font-size:12px}.header-inner{gap:11px}.process-grid{gap:70px}.contact-grid{gap:45px}.hero-grid{gap:20px}.hero-highlights{gap:12px}.dashboard-main{padding:15px}.dashboard-stats strong{font-size:17px}}
+@media(max-width:1020px){.desktop-nav,.header-quote{display:none}.menu-toggle{display:flex}.mobile-nav:not([hidden]){display:flex;flex-direction:column;gap:0;padding:5px 24px 19px;background:var(--surface);box-shadow:0 13px 18px rgba(0,0,0,.05)}.mobile-nav a{padding:12px 5px;border-bottom:1px solid var(--line);font-size:14px;font-weight:700}.mobile-nav a:last-child{color:var(--brand)}.hero-grid{grid-template-columns:1fr 1fr;gap:10px}.hero-copy h1{font-size:clamp(2.5rem,5vw,4rem)}.hero-visual{padding-left:3px;padding-right:3px}.dashboard-stats strong{font-size:14px}.dashboard-stats{gap:5px}.dashboard-main{padding:12px}.dashboard-stats div{padding:9px}.visual-float{padding:8px 10px}.section{padding:80px 0}.service-card{padding:24px 18px}.service-index{right:17px}.process-grid{gap:42px}.faq-grid{gap:45px}}
+@media(max-width:840px){.container{width:min(100% - 38px,700px)}.hero-grid{grid-template-columns:1fr;min-height:0;padding:70px 0 75px;gap:30px}.hero-copy{max-width:690px}.hero-copy h1{max-width:700px;font-size:clamp(2.9rem,7.4vw,4.8rem)}.hero-lead{max-width:630px}.hero-visual{max-width:580px;width:100%;margin:10px auto 0}.dashboard-main{padding:20px}.dashboard-stats strong{font-size:19px}.dashboard-stats{gap:9px}.value-strip-grid{gap:12px}.value-strip-grid>div{gap:10px}.value-strip-grid>div+div{padding-left:15px}.value-strip strong{font-size:12px}.value-strip small{font-size:10px}.services-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.service-card{min-height:315px}.demos-heading{display:block}.demo-heading-aside{display:inline-flex;margin-top:18px}.pricing-grid{gap:12px}.price-card{padding:20px}.price-card h3{font-size:20px}.price-amount{font-size:27px}.process-grid,.contact-grid{grid-template-columns:1fr;gap:45px}.process-copy{max-width:570px}.about-card{grid-template-columns:1fr 1.4fr;gap:26px;padding:30px}.about-mark{min-height:220px}.about-card h2{font-size:30px}.faq-grid{grid-template-columns:1fr;gap:18px}.faq-grid>div:first-child{max-width:630px}.contact-copy{max-width:630px}.contact-grid{max-width:700px}.footer-main{gap:30px}}
+@media(max-width:620px){:root{--heading:clamp(1.95rem,8vw,2.7rem)}.container{width:calc(100% - 30px)}.announcement{font-size:10px;gap:6px;flex-wrap:wrap}.announcement a{white-space:nowrap}.header-inner{height:68px}.brand img{width:38px;height:38px}.brand-name{font-size:18px}.brand-name small{font-size:6.5px}.hero-grid{padding:56px 0 68px}.hero-copy h1{font-size:clamp(2.55rem,10vw,3.9rem);margin:22px 0}.hero-lead{font-size:15px;line-height:1.75}.hero-eyebrow{font-size:9px}.hero-buttons{flex-direction:column;align-items:stretch}.hero-buttons .btn{width:100%}.hero-highlights{font-size:11px;gap:12px 17px}.hero-visual{padding:30px 0 15px}.dashboard-window{transform:none}.float-top{right:-3px;top:-4px}.float-bottom{left:-2px;bottom:0}.dashboard-sidebar{width:36px}.dashboard-main{padding:9px}.dashboard-body{min-height:235px}.dashboard-greeting h3{font-size:11px}.dashboard-greeting small{font-size:8px}.dashboard-stats{gap:5px;margin:12px 0}.dashboard-stats div{padding:7px 5px}.dashboard-stats small,.dashboard-stats div span{font-size:7px}.dashboard-stats strong{font-size:13px}.status-dot{font-size:7px;padding:3px 5px}.dashboard-chart{padding:8px}.chart-bars{height:70px;gap:8px}.chart-bars i{width:13px}.chart-title{font-size:9px}.chart-title span{font-size:7px}.dashboard-top{height:32px;font-size:8px;padding:0 7px}.side-logo{width:22px;height:22px}.side-item{font-size:15px}.visual-float strong{font-size:9px}.visual-float small{font-size:7px}.float-icon,.check-icon{height:27px;width:27px}.hero-visual-caption{margin:16px 0 -15px}.value-strip-grid{grid-template-columns:1fr;gap:14px;padding:21px 0}.value-strip-grid>div+div{border-left:0;padding-left:0}.strip-icon{width:39px;height:39px}.section{padding:70px 0}.section-heading{margin-bottom:29px}.section-heading p{font-size:13px}.services-grid{grid-template-columns:1fr;gap:12px}.service-card{min-height:0;padding:23px}.service-card p{margin-bottom:25px}.featured-service{min-height:265px}.demos-heading p{font-size:13px}.demo-app{border-radius:12px}.demo-tabs{grid-template-columns:repeat(2,minmax(0,1fr));gap:0;padding:0 7px}.demo-tab{padding:14px 7px;font-size:11px}.tab-icon{font-size:17px}.demo-content{padding:22px 14px 0}.demo-toolbar{flex-wrap:wrap;gap:12px}.demo-toolbar h3{font-size:20px}.demo-toolbar p{font-size:12px}.mini-stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.mini-stats.three-cols{grid-template-columns:repeat(3,minmax(0,1fr))}.mini-stat{padding:13px 10px}.mini-stat strong{font-size:20px}.mini-stats.three-cols .mini-stat strong{font-size:clamp(13px,3.7vw,19px)}.mini-stats.three-cols .mini-stat span{font-size:10px}.mini-stat small{font-size:9px}.inventory-controls{align-items:stretch;flex-direction:column;gap:9px}.search-field{width:100%}.inline-fields{flex-wrap:wrap}.inline-fields label:first-child{flex-basis:100%}.inline-fields .btn{width:100%}.demo-footer{flex-direction:column;align-items:start}.sample-files{grid-template-columns:1fr}.excel-controls{flex-direction:column;align-items:stretch}.excel-controls .btn{margin-left:0}.report-filters{flex-wrap:wrap}.report-filters label{flex:1;min-width:170px;flex-wrap:wrap}.report-filters select{width:100%}.report-layout{grid-template-columns:1fr}.report-bars{height:180px}.request-form{flex-direction:column;align-items:stretch}.request-form label,.request-form .btn{width:100%}.kanban-board{grid-template-columns:1fr;gap:10px}.kanban-column{min-height:0}.kanban-empty{padding:12px 8px}.pricing-grid{grid-template-columns:1fr;gap:13px}.price-card.popular{transform:none}.price-card p{min-height:0}.price-card ul{padding:14px 0 19px}.process-steps:before{left:19px}.step-number{height:40px;width:40px}.process-step{gap:13px}.process-step h3{font-size:14px}.about-section{padding:55px 0}.about-card{grid-template-columns:1fr;gap:20px;padding:25px}.about-mark{min-height:150px}.about-mark img{height:66px;width:66px}.about-card h2{font-size:29px}.faq-section{padding:60px 0}.contact-grid{gap:30px}.contact-copy h2{font-size:clamp(2.15rem,8.5vw,3rem)}.contact-form-card{padding:23px 18px}.form-row{grid-template-columns:1fr}.footer-main{grid-template-columns:1fr 1fr;gap:25px}.footer-main>div:first-child{grid-column:1/-1}.footer-bottom{flex-direction:column}.floating-whatsapp{bottom:15px;right:15px;width:48px;height:48px}.floating-whatsapp svg{height:27px;width:27px}}
+@media(max-width:370px){.demo-content{padding:20px 10px 0}.demo-tab{font-size:10px}.mini-stat strong{font-size:17px}.demo-toolbar h3{font-size:18px}.dashboard-sidebar{display:none}.hero-copy h1{font-size:2.5rem}.report-bars{gap:7px}.report-bar-item .bar:after{font-size:8px}.brand-name{font-size:16px}.brand-name small{font-size:5.9px}}
+
+/* PACNOLO Tech 3.0 — ajustes de pantalla pequeña integrados en responsive.css. */
+@media(max-width:1020px){.hero-grid{gap:24px}.hero-benefit-panel{padding:0}}
+@media(max-width:830px){.hero-grid{grid-template-columns:1fr;max-width:700px;padding:45px 0 42px}.hero-copy{text-align:center}.hero-copy h1{font-size:clamp(2.7rem,7vw,4rem)}.hero-visual.hero-benefit-panel{max-width:590px;margin:0 auto;padding:0}.hero-eyebrow{margin:0 auto}.hero-lead{margin-left:auto;margin-right:auto}.hero-buttons,.hero-highlights{justify-content:center}.services-showcase{grid-template-columns:1fr}.services-showcase-art{display:none}.section-fold-content.process-grid{grid-template-columns:1fr}}
+@media(max-width:620px){
+  .container{width:calc(100% - 28px)}
+  .header-inner{height:63px}.hero-grid{padding:29px 0 34px;gap:21px}
+  .hero-copy h1{font-size:clamp(2.2rem,9vw,3.55rem);margin:18px 0 15px}
+  .hero-lead{font-size:14px;line-height:1.6;margin-bottom:18px}
+  .hero-buttons{flex-direction:column;gap:10px;align-items:stretch}
+  .hero-buttons .btn{flex:0 0 auto;min-height:50px;padding:12px 17px;width:100%}
+  .hero-highlights{margin-top:17px;justify-content:center;gap:8px 13px;font-size:10px}
+  .hero-visual.hero-benefit-panel{padding:0;margin:0 auto;max-width:100%}
+  .benefit-card-top{padding:12px 14px}.benefit-card-intro{padding:16px 16px 11px}
+  .benefit-card-intro h2{font-size:1.5rem}.benefit-card-intro p{font-size:11px}
+  .benefit-accordion-card{border-radius:16px}.hero-benefit-list{padding:0 10px 11px}
+  .hero-benefit summary{min-height:58px}.benefit-card-bottom{flex-wrap:wrap}
+  .section{padding:29px 0}.services-section{padding:29px 0 13px}.demos-section,.pricing-section,.process-section{padding:8px 0}
+  .services-showcase-intro{padding:22px 19px}.services-showcase-intro h2{font-size:1.85rem}
+  .services-showcase-accordion{padding:12px 9px}.section-fold-summary{min-height:85px}
+  .section-fold-content .section-heading{display:none}
+  .section-fold-content{padding:14px 12px 18px}
+  .section-fold-content.process-grid{gap:18px}.about-section{padding:25px 0}.faq-section{padding:26px 0}
+  .contact-section{padding:43px 0}
+}
+@media(max-width:370px){.hero-copy h1{font-size:2.12rem}.hero-benefit-heading strong{font-size:11px}.benefit-card-tag{display:none}}
+
+/* PACNOLO Tech 3.1 | Rejilla flexible y controles alineados en móvil. */
+@media(max-width:1080px){
+ .hero-grid{padding-block:30px 34px;gap:22px}
+ .hero-copy h1{font-size:clamp(2.4rem,4.3vw,3.65rem)}
+ .data-table th,.data-table td{padding:10px 5px}
+ .qty-controls{gap:3px}.qty-controls button{width:27px;height:27px;min-width:27px;min-height:27px;flex-basis:27px}
+ .qty-controls span{min-width:21px;flex-basis:21px}
+}
+@media(max-width:900px){
+ .hero-grid{padding:28px 0 30px;gap:17px}
+ /* Las filas se vuelven tarjetas compactas; no hay tabla horizontal oculta. */
+ .table-wrap{overflow:visible;border:0;width:100%}
+ .data-table{display:block;border:0;border-radius:0;min-width:0;width:100%;background:transparent;overflow:visible;table-layout:auto}
+ .data-table thead{display:none}
+ .data-table tbody{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;width:100%}
+ .data-table tbody tr{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto auto auto;gap:3px 7px;align-items:center;min-width:0;background:var(--surface);padding:11px 12px;border:1px solid var(--line);border-radius:11px;box-shadow:0 2px 6px rgba(11,61,74,.025)}
+ .data-table tbody tr:hover{background:var(--surface2)}
+ .data-table td{display:block;min-width:0;width:auto;white-space:normal;padding:0!important;border:0!important;text-align:left!important;font-size:11px;line-height:1.35}
+ .data-table td:nth-child(1){grid-column:1;grid-row:1;font-size:13px;font-weight:850;line-height:1.25;padding-right:3px!important}
+ .data-table td:nth-child(2){grid-column:1;grid-row:2;color:var(--muted);font-size:10px}
+ .data-table td:nth-child(3){grid-column:2;grid-row:2;text-align:right!important;font-weight:800;font-size:11px;white-space:nowrap}
+ .data-table td:nth-child(4){display:none} /* La cantidad ya está entre los botones +/- */
+ .data-table td:nth-child(5){grid-column:1;grid-row:3;justify-self:start}
+ .data-table td:nth-child(6){grid-column:2;grid-row:1;justify-self:end}
+ .qty-controls{width:auto;justify-content:flex-end;gap:5px}
+ .qty-controls button{width:30px;height:30px;min-width:30px;min-height:30px;flex-basis:30px}
+ .qty-controls span{min-width:21px;flex-basis:21px;text-align:center}
+ .stock-badge{padding:3px 7px;font-size:9px}
+ .data-table tr:has(.empty-table){display:block;grid-column:1/-1}
+ .data-table .empty-table{display:block!important;width:100%;text-align:center!important;padding:17px!important}
+ .section-fold-summary{min-height:69px}
+}
+@media(max-width:620px){
+ .hero-grid{padding:21px 0 25px;gap:16px}
+ .hero-copy h1{font-size:clamp(2.05rem,8.3vw,3.15rem);line-height:1.08;margin:12px 0}
+ .hero-lead{font-size:13px;line-height:1.55;margin-bottom:14px}
+ .hero-highlights{margin-top:12px;gap:5px 10px}
+ .hero-buttons .btn{min-height:45px;padding:10px 13px}
+ .benefit-card-intro{padding:13px 14px 8px}
+ .benefit-card-intro h2{font-size:1.35rem}
+ .benefit-card-intro p{margin-bottom:3px}
+ .hero-benefit summary{min-height:51px;padding:7px 9px}
+ .hero-benefit-list{padding:0 9px 9px;gap:6px}
+ .hero-benefit-body{padding-bottom:8px}
+ .benefit-card-bottom{padding:8px 12px}
+ .services-section{padding:16px 0 9px}
+ .services-showcase-intro{padding:21px 19px}
+ .services-showcase-intro h2{font-size:1.7rem;margin:9px 0}
+ .services-showcase-intro>p{font-size:12px;line-height:1.55;margin-bottom:11px}
+ .services-showcase-accordion{padding:9px 12px}
+ .service-accordion-item summary{min-height:54px;padding:7px 5px}
+ .service-accordion-symbol{width:33px;height:33px;flex-basis:33px}
+ .section-fold-summary{min-height:65px;padding:10px 12px}
+ .section-fold-summary strong{font-size:14px}
+ .section-fold-content{padding:12px 11px 15px}
+ .demo-content,.section-fold-content .demo-content{padding:13px 10px 0}
+ .demo-toolbar{gap:8px;flex-wrap:wrap;margin-bottom:12px}
+ .demo-toolbar h3{font-size:18px}
+ .demo-tabs{grid-template-columns:repeat(2,minmax(0,1fr));gap:0;padding:0 4px}
+ .demo-tab{padding:11px 4px;font-size:11px}
+ .mini-stats{gap:6px;margin-bottom:11px}
+ .mini-stat{padding:10px 9px}
+ .inventory-controls{margin:9px 0}
+ .data-table tbody{grid-template-columns:1fr;gap:7px}
+ .data-table tbody tr{padding:10px 11px}
+ .data-table td:nth-child(1){font-size:12px}
+ .add-demo-form{padding:12px;margin-top:11px}
+ .add-demo-form .inline-fields{gap:8px}
+ .add-demo-form .inline-fields label:first-child{flex:1 1 100%}
+ .add-demo-form .inline-fields label:not(:first-child){flex:1 1 calc(50% - 8px)}
+ .section{padding-top:20px;padding-bottom:20px}
+ .demos-section,.pricing-section,.process-section{padding:5px 0}
+ .about-section{padding:13px 0}.about-card{padding:19px}.about-mark{min-height:106px}
+ .faq-section{padding:15px 0}.faq-grid{gap:19px}
+ .contact-section{padding:27px 0}
+}
+@media(max-width:360px){
+ .qty-controls{gap:3px}.qty-controls button{width:26px;height:28px;min-width:26px;min-height:28px;flex-basis:26px}
+ .data-table tbody tr{gap:3px 5px;padding:10px 9px}
+ .data-table td:nth-child(1){font-size:11px}
+}
+
+@media(max-width:620px){.inventory-add-collapse{margin-top:10px}.inventory-add-collapse>summary{padding:11px 12px}}
+
+/* Etiquetas compactas y legibles, sin solapamiento en las cabeceras. */
+@media(max-width:620px){
+ .about-fold .about-card{padding:17px;gap:15px}
+ .faq-fold .faq-grid{gap:16px}
+ .about-fold .section-fold-content,.faq-fold .section-fold-content{padding:10px}
+}
+
+/* PACNOLO Tech v3.6 — Símbolos de navegación sin numeración */
+.section-fold-summary .fold-index::before,.section-fold-summary .fold-index::after{content:none!important}
+
+
+/* Chispa global: dimensiones reducidas para evitar tapar controles móviles. */
+@media(max-width:600px){
+ .chispa-companion{left:10px;bottom:14px;width:124px}
+ .chispa-dock{width:124px;min-height:108px}
+ .chispa-dock-tools{padding:2px 3px;gap:1px;top:0}
+ .chispa-dock-tool{width:23px;height:24px;font-size:17px}
+ .chispa-dock-face{width:81px;height:77px;margin:33px 0 0 -1px}
+ .chispa-dock-speech{top:26px;left:61px;max-width:116px;min-width:80px;padding:6px 7px;font-size:9.5px}
+ .chispa-dock-mini,.chispa-dock-restore{padding:8px 10px;font-size:10px}
+}
+@media(max-width:350px){.chispa-dock-speech{max-width:100px;font-size:9px}.chispa-dock-face{width:73px;height:69px}}
+
+/* En demos y cotizaciones Chispa se hace pequeña para no cubrir campos ni acciones. */
+@media(max-width:600px){
+ .chispa-companion.is-ui-busy[data-state="expanded"] .chispa-dock{display:none}
+ .chispa-companion.is-ui-busy[data-state="expanded"] .chispa-dock-mini{display:inline-flex}
+ .chispa-companion.is-ui-busy[data-state="expanded"]{width:auto}
+}
+
+@media(max-width:600px){.chispa-companion .chispa-dock-speech{left:3px;top:-37px;max-width:126px}}
