@@ -60,6 +60,124 @@
       details.forEach(other=>{if(other!==item&&other.open)other.open=false;});
     }));
   });
+  // Vista previa dinámica de cada servicio y videos aportados por el propietario del sitio.
+  (function setupServicePreviews(){
+    const section=document.getElementById('fold-servicios');
+    if(!section)return;
+    const items=[...section.querySelectorAll('.service-accordion-item')];
+    const title=document.getElementById('services-title-interior');
+    const description=document.getElementById('service-preview-description');
+    const video=document.getElementById('service-preview-video');
+    const videoChoices=document.getElementById('service-video-choices');
+    const illustration=document.getElementById('service-preview-illustration');
+    const illustrationIcon=document.getElementById('service-illustration-icon');
+    const illustrationScene=document.getElementById('service-illustration-scene');
+    const caption=document.getElementById('service-illustration-caption');
+    const meta=document.getElementById('service-preview-meta');
+    const chips=document.getElementById('service-preview-chips');
+    const price=document.getElementById('service-preview-price');
+    const quote=document.getElementById('service-preview-quote');
+    if(!title||!description||!video||!illustration||!meta||!quote)return;
+    const previews=[
+      {headline:'Hojas de cálculo que <em>trabajan por ti.</em>',caption:'Reportes y automatización',media:'media/ReporteAutomatizacion.mp4',poster:'media/ReporteAutomatizacion-poster.jpg'},
+      {headline:'Organiza tu negocio <em>en un solo lugar.</em>',caption:'Inventarios, pedidos y controles',media:'media/Organizacion.mp4',poster:'media/Organizacion-poster.jpg'},
+      {headline:'Decisiones más claras con <em>datos visibles.</em>',caption:'Indicadores y proyecciones',media:'media/Graficas.mp4',poster:'media/Graficas-poster.jpg'},
+      {headline:'Dale presencia digital <em>a tus ideas.</em>',caption:'Sitios web y portales',media:'media/pagina web.mp4',poster:'media/pagina-web-poster.jpg'},
+      {headline:'Tu información, <em>mejor organizada.</em>',caption:'Bases de datos y Access'},
+      {headline:'Tecnología para una atención <em>más organizada.</em>',caption:'Historia clínica, citas y resultados',media:'media/HistoriaClinica.mp4',poster:'media/HistoriaClinica-poster.jpg'},
+      {headline:'Presenta tus ideas de forma <em>profesional.</em>',caption:'Presentaciones y proyectos escolares',media:'media/ProyectosEscolares.mp4',poster:'media/ProyectosEscolares-poster.jpg'},
+      {headline:'Una solución única para <em>tu proyecto.</em>',caption:'Diseñado a tu medida'}
+    ];
+    // Vistas distintas de cada servicio sin depender de videos inexistentes.
+    // Los videos se vinculan a cada servicio; inventarios conserva el selector de dos demostraciones.
+    const scenes={
+      2:`<div class="scene-board" aria-hidden="true"><div class="scene-board-top"><i></i><i></i><i></i><b>RESULTADOS</b></div><div class="scene-bars"><span style="--h:45%"></span><span style="--h:66%"></span><span style="--h:56%"></span><span style="--h:83%"></span><span style="--h:100%"></span></div><div class="scene-trend">↗ +24%</div></div>`,
+      3:`<div class="scene-browser" aria-hidden="true"><div class="scene-browser-top"><i></i><i></i><i></i><span>tusitio.mx</span></div><div class="scene-browser-hero"><b>Tu negocio online</b><i></i><i></i></div><div class="scene-browser-cards"><span></span><span></span><span></span></div></div>`,
+      4:`<div class="scene-db" aria-hidden="true"><span class="scene-db-node">CLIENTES</span><div class="scene-db-cyl"><i></i><b>DATOS</b><i></i></div><span class="scene-db-node">REPORTES</span></div>`,
+      7:`<div class="scene-custom" aria-hidden="true"><div class="scene-custom-line"><i></i><i></i><i></i></div><div class="scene-custom-core">✦</div><div class="scene-custom-tags"><span>IDEA</span><span>DISEÑO</span><span>SOLUCIÓN</span></div></div>`
+    };
+    let selection=-1;
+    const inventoryDemos={
+      organizacion:{src:'media/Organizacion.mp4',poster:'media/Organizacion-poster.jpg'},
+      citas:{src:'media/Citas.mp4',poster:'media/Citas-poster.jpg'}
+    };
+    function setInventoryDemo(name){
+      const chosen=inventoryDemos[name];if(!chosen || selection!==1)return;
+      const already=video.getAttribute('src')===chosen.src;
+      videoChoices?.querySelectorAll('[data-demo]').forEach(btn=>btn.classList.toggle('is-current',btn.dataset.demo===name));
+      if(already)return;
+      video.pause();video.src=chosen.src;video.poster=chosen.poster;video.load();
+      if(section.open)video.play().catch(()=>{});
+    }
+    videoChoices?.querySelectorAll('[data-demo]').forEach(btn=>btn.addEventListener('click',()=>setInventoryDemo(btn.dataset.demo)));
+    function stopVideo(){
+      video.pause();
+      video.removeAttribute('src');
+      video.load();
+      video.hidden=true;
+    }
+    function selectService(i){
+      if(i===selection)return;
+      const item=items[i],info=previews[i];
+      if(!item||!info)return;
+      selection=i;
+      items.forEach((node,n)=>{
+        node.classList.toggle('is-service-selected',n===i);
+        if(n!==i&&node.open)node.open=false;
+      });
+      const bodyText=item.querySelector('.service-accordion-body>p');
+      const sourcePrice=item.querySelector('.service-price');
+      const sourceQuote=item.querySelector('[data-quote-service]');
+      title.innerHTML=info.headline;
+      description.textContent=bodyText?.textContent?.trim()||'Diseñamos soluciones prácticas que se adaptan a tu proyecto.';
+      caption.textContent=info.caption;
+      illustrationIcon.innerHTML=item.querySelector('.service-accordion-symbol')?.innerHTML||'';
+      illustration.dataset.scene=String(i);
+      if(illustrationScene)illustrationScene.innerHTML=scenes[i]||'';
+      chips.replaceChildren();
+      item.querySelectorAll('.service-usecases span').forEach(x=>{
+        const tag=document.createElement('span');tag.textContent=x.textContent;chips.appendChild(tag);
+      });
+      price.replaceChildren();
+      if(sourcePrice)price.textContent=sourcePrice.textContent.replace(/\s+/g,' ').trim();
+      meta.hidden=false;
+      quote.dataset.quoteService=sourceQuote?.dataset.quoteService||'Proyecto personalizado';
+      quote.firstChild.textContent='Cotizar este servicio ';
+      stopVideo();
+      if(videoChoices)videoChoices.hidden=i!==1;
+      if(i===1)videoChoices?.querySelectorAll('[data-demo]').forEach(btn=>btn.classList.toggle('is-current',btn.dataset.demo==='organizacion'));
+      if(info.media){
+        video.src=info.media;
+        video.poster=info.poster;
+        video.hidden=false;
+        illustration.hidden=true;
+        if(section.open)video.play().catch(()=>{ /* El usuario puede reproducir desde los controles. */ });
+      }else{
+        illustration.hidden=false;
+      }
+      // En teléfonos volvemos al comienzo del banner para mostrar el recurso recién seleccionado.
+      if(section.open && window.innerWidth<=720){
+        const view=section.querySelector(':scope > .section-fold-content');
+        view?.scrollTo({top:0,behavior:'smooth'});
+      }
+    }
+    items.forEach((item,i)=>{
+      item.addEventListener('toggle',()=>{if(item.open)selectService(i);});
+      item.querySelector('summary')?.addEventListener('click',()=>{
+        // Al cerrar la tarjeta seleccionada, mantenemos la vista previa hasta elegir otra.
+        if(selection!==i||!item.open)requestAnimationFrame(()=>selectService(i));
+      });
+    });
+    section.addEventListener('toggle',()=>{
+      if(!section.open){video.pause();}
+      else if(selection>=0&&!video.hidden)video.play().catch(()=>{});
+    });
+    document.addEventListener('visibilitychange',()=>{
+      if(document.hidden)video.pause();
+      else if(section.open&&!video.hidden)video.play().catch(()=>{});
+    });
+  })();
+
   // CHISPA: reacciona a las secciones sin bloquear ninguna función del portal.
   const chispaStage=document.getElementById('chispa-stage');
   const chispaButton=document.getElementById('chispa-touch');

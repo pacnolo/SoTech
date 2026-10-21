@@ -171,3 +171,101 @@
  .overview-modal-panel .overview-banner-grid{grid-template-columns:1fr}
 }
 @media(max-width:400px){.overview-modal-panel{width:94vw;margin:8.5dvh auto 0}body.section-modal-open .main-section-fold[open]{left:3vw!important;width:94vw!important}}
+
+
+/* PACNO TECH 4.7 — ventanas fluidas según pantalla */
+@media(max-width:1000px){
+ .overview-modal-panel{width:min(88vw,940px)!important;max-height:84dvh!important}
+ body.section-modal-open .main-section-fold[open]{width:88vw!important;max-height:calc(100dvh - 46px)!important}
+ .overview-modal-content .overview-banner-grid{grid-template-columns:1fr;gap:18px}
+ .overview-modal-content .overview-banner-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+ body.section-modal-open #fold-contacto .contact-grid{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:18px}
+}
+@media(max-width:800px){
+ .overview-modal{padding:12px}
+ .overview-modal-panel{width:94vw!important;max-height:87dvh!important;margin:0!important}
+ .overview-modal-content{padding:22px 17px 23px!important}
+ .overview-modal-content .overview-banner-grid{display:grid;grid-template-columns:1fr;gap:16px}
+ .overview-modal-content .overview-points{grid-template-columns:1fr;gap:8px}
+ .overview-modal-content .overview-points li{min-height:0;padding:11px 12px;font-size:12.5px}
+ .overview-modal-content .overview-banner-actions{grid-template-columns:1fr;gap:9px}
+ .overview-modal-content .overview-banner-actions .btn{min-height:43px}
+ body.section-modal-open .main-section-fold[open]{top:50%!important;left:50%!important;width:94vw!important;height:auto!important;max-height:92dvh!important;transform:translate(-50%,-50%)!important}
+ body.section-modal-open .main-section-fold[open]>.section-fold-summary{padding:13px 60px 13px 15px!important;min-height:66px!important}
+ body.section-modal-open .main-section-fold[open]>.section-fold-content{padding:15px!important;max-height:calc(92dvh - 68px)!important}
+ body.section-modal-open #fold-contacto>.section-fold-content{padding:14px!important;max-height:calc(92dvh - 68px)!important}
+ body.section-modal-open #fold-contacto .contact-grid{grid-template-columns:1fr;gap:16px}
+ body.section-modal-open #fold-contacto .contact-copy{padding:0}
+ body.section-modal-open #fold-contacto .contact-copy h2{font-size:clamp(1.5rem,5.2vw,2.05rem);max-width:none;margin:8px 0 9px}
+ body.section-modal-open #fold-contacto .contact-copy p{font-size:12px;line-height:1.6;margin-bottom:9px;max-width:none}
+ body.section-modal-open #fold-contacto .contact-benefits{display:none}
+ body.section-modal-open #fold-contacto .contact-phone{display:none}
+ body.section-modal-open #fold-contacto .contact-form-card{padding:18px 15px}
+ body.section-modal-open #fold-contacto .contact-form-card form{gap:10px}
+ body.section-modal-open #fold-contacto .form-row{grid-template-columns:1fr}
+ .section-modal-close{top:13px;right:12px}
+}
+@media(max-width:380px){
+ .overview-modal-panel{width:96vw!important}
+ body.section-modal-open .main-section-fold[open]{width:96vw!important}
+ .overview-modal-content .overview-banner-head h3{font-size:1.4rem}
+ body.section-modal-open #fold-contacto .contact-form-card{padding:15px 12px}
+}
+
+/* Una cotización lista para usar al abrir en teléfonos, sin preámbulos largos. */
+@media(max-width:600px){
+ body.section-modal-open #fold-contacto .contact-copy .contact-eyebrow{display:none}
+ body.section-modal-open #fold-contacto .contact-copy h2{font-size:clamp(1.2rem,5vw,1.45rem);line-height:1.15;margin:0 0 7px}
+ body.section-modal-open #fold-contacto .contact-copy p{display:none}
+ body.section-modal-open #fold-contacto .contact-grid{gap:10px}
+ body.section-modal-open #fold-contacto .contact-form-card{padding:15px 14px 14px}
+ body.section-modal-open #fold-contacto .form-card-top{margin-bottom:12px}
+ body.section-modal-open #fold-contacto .form-card-top h3{font-size:19px}
+ body.section-modal-open #fold-contacto .contact-form-card form{gap:8px}
+ body.section-modal-open #fold-contacto .contact-form-card textarea{min-height:67px}
+ body.section-modal-open #fold-contacto .contact-form-card input,
+ body.section-modal-open #fold-contacto .contact-form-card select{min-height:40px}
+}
+
+/* Pacno Tech 4.8 — matriz compacta responsiva y vista previa legible en móvil. */
+@media (max-width:1100px){
+ body.section-modal-open #fold-servicios .services-showcase {grid-template-columns:minmax(255px,.9fr) minmax(0,1.2fr)}
+ body.section-modal-open #fold-servicios .service-accordion {grid-template-columns:repeat(2,minmax(0,1fr))}
+ body.section-modal-open #fold-servicios .service-accordion-item {min-height:94px}
+ body.section-modal-open #fold-servicios .service-accordion-item>summary {min-height:93px;padding:11px}
+}
+@media (max-width:720px){
+ body.section-modal-open #fold-servicios .services-showcase {grid-template-columns:1fr!important}
+ body.section-modal-open #fold-servicios .services-showcase-intro {padding:16px 15px 14px}
+ body.section-modal-open #fold-servicios .services-showcase-intro h2 {font-size:1.36rem!important}
+ body.section-modal-open #fold-servicios .services-showcase-intro>p {font-size:11.5px!important;margin-bottom:9px}
+ body.section-modal-open #fold-servicios .services-showcase-accordion {padding:14px 12px}
+ body.section-modal-open #fold-servicios .service-accordion {grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ body.section-modal-open #fold-servicios .service-accordion-item {min-height:100px}
+ body.section-modal-open #fold-servicios .service-accordion-item>summary {min-height:99px;padding:10px 9px;gap:7px}
+ body.section-modal-open #fold-servicios .service-accordion-item>summary .service-accordion-symbol {width:30px;height:30px}
+ body.section-modal-open #fold-servicios .service-accordion-item>summary .service-accordion-label strong {font-size:11.5px}
+ body.section-modal-open #fold-servicios .service-accordion-item>summary .service-accordion-toggle {width:20px;height:20px;top:11px;right:8px}
+ .service-media-stage {max-width:310px;margin-inline:auto;aspect-ratio:16/8.5}
+ .service-preview-meta{margin-bottom:9px}
+ .service-preview-chips span{font-size:9px}
+ body.section-modal-open #fold-servicios .btn-service-main {width:100%;justify-content:center}
+}
+@media (max-width:360px){
+ body.section-modal-open #fold-servicios .service-accordion-item>summary .service-accordion-label strong{font-size:10.5px}
+}
+
+
+/* Pacno Tech v4.9 — matriz sin fila incompleta y vista previa adaptativa. */
+@media(max-width:1100px){body.section-modal-open #fold-servicios .service-accordion-item:last-child{grid-column:span 2}}
+@media(max-width:720px){
+ body.section-modal-open #fold-servicios .service-accordion-item:last-child{grid-column:1/-1;min-height:73px}
+ body.section-modal-open #fold-servicios .service-accordion-item:last-child>summary{min-height:72px;flex-direction:row;align-items:center;gap:12px}
+ body.section-modal-open #fold-servicios .service-accordion-item:last-child>summary .service-accordion-label{flex:1}
+ .service-illustration-scene{max-width:295px;height:76%}
+ .service-media-stage{aspect-ratio:16/8.3}
+}
+
+/* PACNO TECH 5.0 — dos columnas en teléfonos. */
+@media(max-width:1060px){.pacno-section-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}}
+@media(max-width:600px){.pacno-section-hub{padding-top:12px;padding-bottom:20px}.pacno-section-grid{gap:9px}.pacno-section-grid .main-section-fold:not([open])>summary.section-fold-summary{padding:12px!important;min-height:146px!important;grid-template-rows:34px auto auto!important;gap:4px 5px!important}.pacno-section-grid .main-section-fold:not([open])>summary .fold-index{width:33px!important;height:33px!important}.pacno-section-grid .main-section-fold:not([open])>summary>strong{font-size:12.5px!important;line-height:1.27!important}.pacno-section-grid .main-section-fold:not([open])>summary .fold-description{font-size:10px!important;line-height:1.3!important}.pacno-section-grid .main-section-fold:not([open])>summary .fold-chevron{width:24px!important;height:24px!important;font-size:16px!important}.service-video-choices{gap:5px}.service-video-choice{font-size:10px;padding:5px 9px}}
