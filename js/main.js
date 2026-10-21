@@ -77,6 +77,7 @@
     const chips=document.getElementById('service-preview-chips');
     const price=document.getElementById('service-preview-price');
     const quote=document.getElementById('service-preview-quote');
+    const quoteOpenButton=document.getElementById('service-quote-open');
     if(!title||!description||!video||!illustration||!meta||!quote)return;
     const previews=[
       {headline:'Hojas de cálculo que <em>trabajan por ti.</em>',caption:'Reportes y automatización',media:'media/ReporteAutomatizacion.mp4',poster:'media/ReporteAutomatizacion-poster.jpg'},
@@ -161,6 +162,23 @@
         view?.scrollTo({top:0,behavior:'smooth'});
       }
     }
+    // CTA compacta: reutiliza el formulario completo, sin mantener dos cotizaciones.
+    quoteOpenButton?.addEventListener('click',()=>{
+      const selected=quote.dataset.quoteService||'Proyecto personalizado';
+      const quoteSelect=document.getElementById('quote-service');
+      if(quoteSelect){
+        quoteSelect.value=[...quoteSelect.options].some(option=>option.value===selected)
+          ? selected : 'Proyecto personalizado';
+      }
+      const contactFold=document.getElementById('fold-contacto');
+      if(!contactFold)return;
+      section.open=false;
+      contactFold.open=true;
+      // Mantiene la navegación dentro de la ventana de cotización.
+      requestAnimationFrame(()=>{
+        requestAnimationFrame(()=>document.getElementById('quote-name')?.focus({preventScroll:true}));
+      });
+    });
     items.forEach((item,i)=>{
       item.addEventListener('toggle',()=>{if(item.open)selectService(i);});
       item.querySelector('summary')?.addEventListener('click',()=>{

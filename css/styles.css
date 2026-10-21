@@ -294,11 +294,12 @@ body{overflow-x:clip}
 .hero-benefit-panel{padding:0;min-width:0}
 .benefit-accordion-card{width:100%;margin:0 auto;background:#fff;border:1px solid #cde3e6;border-radius:23px;box-shadow:0 24px 63px rgba(8,66,76,.12);overflow:hidden;position:relative}
 .benefit-card-top{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#f6fbfc;border-bottom:1px solid #e0ebed;padding:16px 23px}
+.benefit-card-top{margin:10px 10px 0;border-radius:18px;border:1px solid #e0ebed}
 .benefit-card-logo{display:flex;align-items:center;gap:9px;font-size:14px;font-weight:900;letter-spacing:-.035em;line-height:1.2}.benefit-card-logo b{color:#0ba598}.benefit-card-logo small{display:block;color:#779098;letter-spacing:.1em;font-weight:650;font-size:8px;margin-top:3px}
 .benefit-card-icon{height:32px;width:32px;border-radius:10px;background:#0b3d4a;color:#5ae0cc;font-size:20px;display:grid;place-items:center;font-weight:900}
 .benefit-card-tag{font-size:9px;font-weight:900;color:#057d79;letter-spacing:.09em;border-radius:30px;background:#def5f2;padding:7px 10px;white-space:nowrap}
-.benefit-card-intro{padding:24px 25px 13px}.benefit-card-intro .eyebrow{color:#0b988f}.benefit-card-intro h2{font-size:clamp(1.65rem,2.2vw,2.1rem);line-height:1.15;letter-spacing:-.045em;color:#0b3d4a;max-width:450px;margin:8px 0 8px}.benefit-card-intro h2 em{font-style:normal;color:#0cac9e}.benefit-card-intro p{font-size:12px;margin-bottom:0;color:#647e86}
-.hero-benefit-list{padding:0 19px 15px;display:grid;gap:9px}
+.benefit-card-intro{padding:24px 25px 13px;margin:12px 10px 10px;border-radius:22px}.benefit-card-intro .eyebrow{color:#0b988f}.benefit-card-intro h2{font-size:clamp(1.65rem,2.2vw,2.1rem);line-height:1.15;letter-spacing:-.045em;color:#0b3d4a;max-width:450px;margin:8px 0 8px}.benefit-card-intro h2 em{font-style:normal;color:#0cac9e}.benefit-card-intro p{font-size:12px;margin-bottom:0;color:#647e86}
+.hero-benefit-list{padding:0 19px 18px;display:grid;gap:9px}
 .hero-benefit{border:1px solid #ddebed;background:#fafdfe;border-radius:13px;overflow:hidden;transition:border-color .2s,box-shadow .2s}
 .hero-benefit[open]{border-color:#91d9d3;background:#fff;box-shadow:0 6px 18px rgba(14,80,89,.06)}
 .hero-benefit summary{display:flex;align-items:center;gap:13px;padding:13px 14px;list-style:none;cursor:pointer;min-height:63px}
@@ -351,7 +352,7 @@ body[data-theme="dark"] .hero-benefit,.hero-benefit-list,.benefit-accordion-card
 body[data-theme="dark"] .demos-section,body[data-theme="dark"] .pricing-section,body[data-theme="dark"] .process-section{background:var(--bg)}
 @media(max-width:1120px){.hero-grid{gap:20px}.hero-copy h1{font-size:clamp(2.35rem,4.3vw,3.9rem)}}
 @media(max-width:830px){.hero-grid{grid-template-columns:1fr;max-width:700px;gap:20px;padding-block:47px 45px}.hero-copy{max-width:620px;text-align:center;margin:auto}.hero-copy h1{max-width:620px}.hero-eyebrow{margin:auto}.hero-lead{margin-inline:auto}.hero-buttons,.hero-highlights{justify-content:center}.hero-benefit-panel{width:100%;max-width:590px;margin:auto}.services-showcase{grid-template-columns:1fr}.services-showcase-intro{padding:28px}.services-showcase-art{display:none}.section-fold-content.process-grid{grid-template-columns:1fr}.section-fold-content.process-grid .process-copy{max-width:640px}}
-@media(max-width:600px){.container{width:min(100% - 26px,1150px)}.header-inner{height:64px}.hero-grid{padding:32px 0 38px;gap:24px}.hero-copy h1{font-size:clamp(2.3rem,9vw,3.6rem);margin:17px 0}.hero-lead{font-size:14px;line-height:1.6;margin-bottom:17px}.hero-buttons .btn{flex:1 1 180px}.hero-highlights{margin-top:19px;gap:10px;font-size:10px}.benefit-card-top{padding:13px 15px}.benefit-card-intro{padding:18px 17px 12px}.benefit-card-intro h2{font-size:1.55rem}.hero-benefit-list{padding:0 11px 12px;gap:8px}.hero-benefit summary{min-height:60px;padding:11px 10px;gap:9px}.hero-benefit-heading strong{font-size:12px}.hero-benefit-heading small{font-size:10px}.hero-benefit-body{padding:0 12px 13px 48px}.benefit-card-bottom{padding:11px 14px;font-size:9px}.section{padding:33px 0}.demos-section,.pricing-section,.process-section{padding:8px 0}.services-section{padding:30px 0 12px}.services-showcase-intro{padding:26px 20px}.services-showcase-accordion{padding:14px 10px}.service-accordion-label strong{font-size:12px}.section-fold-summary{padding:16px 14px;min-height:91px;gap:4px 9px;grid-template-columns:37px minmax(0,1fr) 30px}.fold-index{height:36px;width:36px;font-size:7px}.section-fold-summary strong{font-size:15px}.fold-description{font-size:11px}.fold-chevron{width:28px;height:28px;font-size:20px}.section-fold-content{padding:15px 12px 17px}.section-fold-content .section-heading{display:none}.section-fold-content .demo-content{padding:16px 12px 0}.section-fold-content .pricing-grid{gap:12px}.section-fold-content.process-grid{gap:17px}.about-section{padding:21px 0}.faq-section{padding:28px 0}.contact-section{padding:42px 0}.faq-grid h2{font-size:1.7rem}}
+@media(max-width:600px){.container{width:min(100% - 26px,1150px)}.header-inner{height:64px}.hero-grid{padding:32px 0 38px;gap:24px}.hero-copy h1{font-size:clamp(2.3rem,9vw,3.6rem);margin:17px 0}.hero-lead{font-size:14px;line-height:1.6;margin-bottom:17px}.hero-buttons .btn{flex:1 1 180px}.hero-highlights{margin-top:19px;gap:10px;font-size:10px}.benefit-card-top{padding:13px 15px;margin:8px 8px 0}.benefit-card-intro{padding:18px 17px 12px;margin:10px 8px 10px}.benefit-card-intro h2{font-size:1.55rem}.hero-benefit-list{padding:0 10px 14px;gap:8px}.hero-benefit summary{min-height:60px;padding:11px 10px;gap:9px}.hero-benefit-heading strong{font-size:12px}.hero-benefit-heading small{font-size:10px}.hero-benefit-body{padding:0 12px 13px 48px}.benefit-card-bottom{padding:11px 14px;font-size:9px}.section{padding:33px 0}.demos-section,.pricing-section,.process-section{padding:8px 0}.services-section{padding:30px 0 12px}.services-showcase-intro{padding:26px 20px}.services-showcase-accordion{padding:14px 10px}.service-accordion-label strong{font-size:12px}.section-fold-summary{padding:16px 14px;min-height:91px;gap:4px 9px;grid-template-columns:37px minmax(0,1fr) 30px}.fold-index{height:36px;width:36px;font-size:7px}.section-fold-summary strong{font-size:15px}.fold-description{font-size:11px}.fold-chevron{width:28px;height:28px;font-size:20px}.section-fold-content{padding:15px 12px 17px}.section-fold-content .section-heading{display:none}.section-fold-content .demo-content{padding:16px 12px 0}.section-fold-content .pricing-grid{gap:12px}.section-fold-content.process-grid{gap:17px}.about-section{padding:21px 0}.faq-section{padding:28px 0}.contact-section{padding:42px 0}.faq-grid h2{font-size:1.7rem}}
 @media(max-width:360px){.hero-benefit-heading strong{font-size:11px}.benefit-card-tag{display:none}.hero-benefit-no{width:28px;height:28px}.hero-benefit-body{padding-left:10px}.hero-benefit summary{gap:6px}.hero-copy h1{font-size:2.15rem}}
 @media(prefers-reduced-motion:reduce){.hero-benefit-body,.section-fold-content{animation:none}}
 
@@ -516,7 +517,7 @@ body[data-theme="dark"] .services-fold-content .services-showcase-accordion{back
  .hero-buttons{gap:7px}
  .hero-buttons .btn{min-height:42px;padding:9px 12px}
  .hero-highlights{margin-top:12px;gap:6px 10px;font-size:9px}
- .benefit-card-intro{padding:11px 13px 8px}
+ .benefit-card-intro{padding:11px 13px 8px;margin:8px 7px 8px}
  .benefit-card-intro h2{font-size:1.2rem}
  .benefit-card-intro p{font-size:10px}
  .hero-benefit summary{min-height:46px;padding:7px 9px}
@@ -1080,7 +1081,7 @@ body[data-theme="dark"].section-modal-open #fold-servicios .service-accordion-it
 
 /* PACNO TECH 5.0 — matriz en el bloque de APARTADOS señalado por el usuario. */
 .pacno-section-hub{padding-top:22px;padding-bottom:30px}
-.pacno-section-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;align-items:stretch}
+.pacno-section-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;align-items:stretch}
 .pacno-section-grid > section.section{padding:0!important;margin:0!important;min-width:0;background:transparent!important;border:0!important;overflow:visible!important}
 .pacno-section-grid > section.section::before,.pacno-section-grid > section.section::after{display:none!important}
 .pacno-section-grid > section.section > .container{width:100%!important;max-width:none!important;padding:0!important;margin:0!important;height:100%}
@@ -1138,11 +1139,18 @@ body[data-theme="dark"] .pacno-section-grid .main-section-fold:not([open])>summa
   grid-column:3!important;grid-row:1 / 3!important;align-self:center!important;justify-self:end!important;
   width:28px!important;height:28px!important
 }
-/* Séptimo apartado distribuido en dos columnas para cerrar las ocho posiciones. */
-.pacno-section-grid > .contact-section{grid-column:span 2}
 body[data-theme="dark"] .pacno-section-grid > .services-section .main-section-fold:not([open]) > summary > strong{color:#f0fbfa!important}
 body[data-theme="dark"] .pacno-section-grid > .services-section .main-section-fold:not([open]) > summary .fold-description{color:#afcbd0!important}
-@media(max-width:1060px){.pacno-section-grid > .contact-section{grid-column:span 2}}
+/* v5.5 — matriz inferior de 1 x 5 y contacto sólo como modal. */
+.pacno-section-grid>.faq-section{grid-column:auto!important}
+.contact-section.contact-modal-anchor{padding:0!important;margin:0!important}
+.contact-section.contact-modal-anchor>.container{width:0!important;max-width:none!important;height:0!important;padding:0!important;margin:0!important;overflow:visible!important}
+.contact-section.contact-modal-anchor .main-section-fold:not([open]){position:absolute!important;left:-99999px!important;top:auto!important;width:1px!important;height:1px!important;overflow:hidden!important;opacity:0!important;pointer-events:none!important;border:0!important;box-shadow:none!important}
+.contact-section.contact-modal-anchor .main-section-fold:not([open])>.section-fold-summary,
+.contact-section.contact-modal-anchor .main-section-fold:not([open])>.section-fold-content{display:none!important}
+@media(max-width:1340px){.pacno-section-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:1060px){.pacno-section-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.pacno-section-grid{grid-template-columns:1fr}}
 @media(max-width:600px){
   .pacno-section-grid > .services-section .main-section-fold:not([open]) > summary.section-fold-summary{
     grid-template-columns:34px minmax(0,1fr) 26px!important;min-height:67px!important;
@@ -1151,5 +1159,110 @@ body[data-theme="dark"] .pacno-section-grid > .services-section .main-section-fo
   .pacno-section-grid > .services-section .main-section-fold:not([open]) > summary .fold-index{width:33px!important;height:33px!important}
   .pacno-section-grid > .services-section .main-section-fold:not([open]) > summary > strong{font-size:14px!important}
   .pacno-section-grid > .services-section .main-section-fold:not([open]) > summary .fold-description{font-size:10px!important}
-  .pacno-section-grid > .contact-section{grid-column:1 / -1}
+  }
+
+
+/* v5.3 — tarjeta #8 normal + cotización funcional en toda la fila inferior. */
+body.section-modal-open #fold-servicios .service-accordion > .service-accordion-item:last-child{grid-column:auto!important}
+body.section-modal-open #fold-servicios .service-accordion > .service-accordion-item:last-child>summary{justify-content:flex-start!important}
+#fold-servicios .service-quick-quote{margin-top:14px;border:1px solid #cce5e6;border-radius:17px;background:linear-gradient(120deg,#eefbf9 0%,#f7fcfc 68%,#fff 100%);padding:16px 17px 14px;box-shadow:0 10px 23px rgba(10,68,75,.045)}
+#fold-servicios .service-quick-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px}
+#fold-servicios .service-quick-kicker{display:block;color:#06897d;font-size:10px;font-weight:900;letter-spacing:.14em;margin-bottom:4px}
+#fold-servicios .service-quick-head h3{font-size:19px;font-weight:850;letter-spacing:-.025em;line-height:1.2;margin:0 0 4px;color:#123e46}
+#fold-servicios .service-quick-head p{font-size:12px;line-height:1.45;color:#536c73;margin:0}
+#fold-servicios .service-quick-icon{display:grid;place-items:center;color:#006a70;background:#cdf6ed;border-radius:11px;flex:0 0 37px;height:37px;font-size:19px}
+#fold-servicios .service-quick-form{display:grid;grid-template-columns:1fr 1fr;gap:9px 11px}
+#fold-servicios .service-quick-form label{display:flex;flex-direction:column;gap:5px;min-width:0;color:#234952;font-size:11px;font-weight:750}
+#fold-servicios .service-quick-form label span{color:#d16743}
+#fold-servicios .service-quick-form :is(input,select,textarea){width:100%;min-width:0;padding:10px 11px!important;border:1px solid #c5dcde!important;border-radius:9px!important;background:#fff!important;color:#193a42!important;font:inherit!important;font-size:12px!important;line-height:1.35!important;outline-offset:2px}
+#fold-servicios .service-quick-form textarea{resize:vertical;min-height:56px;max-height:160px}
+#fold-servicios .service-quick-form :is(input,textarea)::placeholder{color:#73878d;opacity:1}
+#fold-servicios .service-quick-form :is(input,select,textarea):focus{border-color:#12a99d!important;box-shadow:0 0 0 2px rgba(14,181,167,.14)}
+#fold-servicios .service-quick-detail,#fold-servicios .service-quick-bottom{grid-column:1/-1}
+#fold-servicios .service-quick-bottom{display:flex;align-items:center;justify-content:space-between;gap:15px}
+#fold-servicios .service-quick-bottom small{font-size:10.5px;line-height:1.35;color:#607880;max-width:53%}
+#fold-servicios .service-quick-send{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;border-radius:9px;padding:10px 17px;background:#079d91;color:#fff;font-weight:800;font-size:12px;white-space:nowrap;cursor:pointer}
+#fold-servicios .service-quick-send:hover{background:#087d76}
+body[data-theme="dark"] #fold-servicios .service-quick-quote{background:linear-gradient(130deg,#153f49,#102f39);border-color:#3c7980}
+body[data-theme="dark"] #fold-servicios .service-quick-head h3{color:#f1fdfb}
+body[data-theme="dark"] #fold-servicios .service-quick-head p,body[data-theme="dark"] #fold-servicios .service-quick-bottom small{color:#c0dfe2}
+body[data-theme="dark"] #fold-servicios .service-quick-kicker{color:#6aeee1}
+body[data-theme="dark"] #fold-servicios .service-quick-form label{color:#ecfdfa}
+body[data-theme="dark"] #fold-servicios .service-quick-form :is(input,select,textarea){background:#12333e!important;color:#f0fdfc!important;border-color:#4c7882!important}
+body[data-theme="dark"] #fold-servicios .service-quick-form :is(input,textarea)::placeholder{color:#b6cfd2}
+body[data-theme="dark"] #fold-servicios .service-quick-icon{background:#1c5960;color:#79f0e1}
+/* Se elimina Novedades de la matriz; las dos tarjetas finales se equilibran. */
+@media(max-width:660px){
+  #fold-servicios .service-quick-quote{padding:13px 12px}
+  #fold-servicios .service-quick-form{grid-template-columns:1fr}
+  #fold-servicios .service-quick-detail,#fold-servicios .service-quick-bottom{grid-column:1}
+  #fold-servicios .service-quick-bottom{flex-direction:column;align-items:stretch;gap:9px}
+  #fold-servicios .service-quick-bottom small{max-width:none}
+  #fold-servicios .service-quick-send{width:100%}
+  }
+
+/* v5.3: contraste y estructura de etiquetas en tema oscuro. */
+#fold-servicios .service-quick-form label{display:block!important}
+#fold-servicios .service-quick-form label span{display:inline!important}
+#fold-servicios .service-quick-form :is(input,select,textarea){margin-top:6px!important}
+body[data-theme="dark"].section-modal-open #fold-servicios.main-section-fold[open] > .section-fold-summary{background:#10323d!important;border-bottom-color:#3b6c75!important}
+body[data-theme="dark"].section-modal-open #fold-servicios.main-section-fold[open] > .section-fold-summary strong{color:#f3fffd!important}
+body[data-theme="dark"].section-modal-open #fold-servicios.main-section-fold[open] > .section-fold-summary .fold-description{color:#bbd8dc!important}
+body[data-theme="dark"].section-modal-open #fold-servicios .service-accordion-item{background:#153d47!important;border-color:#2f6670!important}
+body[data-theme="dark"].section-modal-open #fold-servicios .service-accordion-item[open]{background:#15565b!important;border-color:#5fd9cb!important}
+body[data-theme="dark"].section-modal-open #fold-servicios .service-accordion-item>summary{background:transparent!important}
+body[data-theme="dark"].section-modal-open #fold-servicios .service-accordion-item>summary strong{color:#f0fffc!important}
+body[data-theme="dark"].section-modal-open #fold-servicios .service-accordion-item .service-accordion-symbol{background:#23646a!important;color:#a4ffef!important}
+body[data-theme="dark"].section-modal-open #fold-servicios .service-accordion-item .service-accordion-toggle{color:#a7fcef!important;background:#23545e!important}
+
+
+/* Pacno Tech v5.4 — cotización modal única y cuadrícula compacta */
+#fold-servicios .service-quote-cta{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  margin-top:12px;padding:17px 20px;border:1px solid #c9e6e5;border-radius:16px;
+  background:linear-gradient(112deg,#edfbf9,#f7fcfc 74%,#fff);
+  box-shadow:0 10px 20px rgba(9,69,75,.05);
+}
+#fold-servicios .service-quote-cta-copy{flex:1;min-width:0}
+#fold-servicios .service-quote-cta-kicker{display:block;color:#078778;font-size:10px;font-weight:850;letter-spacing:.13em;margin-bottom:4px}
+#fold-servicios .service-quote-cta h3{font-size:18px;color:#103d44;line-height:1.2;margin:0 0 5px;letter-spacing:-.02em}
+#fold-servicios .service-quote-cta p{color:#4f7277;font-size:12px;line-height:1.5;margin:0}
+#fold-servicios .service-quote-open{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;border-radius:10px;min-height:44px;padding:11px 18px;white-space:nowrap;color:#fff;background:#0a9e92;font-size:13px;font-weight:800;cursor:pointer;transition:transform .2s ease,background .2s ease,box-shadow .2s ease}
+#fold-servicios .service-quote-open:hover{background:#087e76;transform:translateY(-2px);box-shadow:0 9px 22px rgba(8,126,118,.2)}
+#fold-servicios .service-quote-open:focus-visible{outline:3px solid #54ead6;outline-offset:3px}
+body[data-theme="dark"] #fold-servicios .service-quote-cta{background:linear-gradient(110deg,#17474e,#123640);border-color:#347179}
+body[data-theme="dark"] #fold-servicios .service-quote-cta-kicker{color:#83eee0}
+body[data-theme="dark"] #fold-servicios .service-quote-cta h3{color:#f0fcfa}
+body[data-theme="dark"] #fold-servicios .service-quote-cta p{color:#b9d8dc}
+
+/* Sólo se compactan las tarjetas cerradas. El banner y su animación siguen intactos. */
+.pacno-section-grid .main-section-fold:not([open])>summary.section-fold-summary{
+  min-height:112px!important;padding:13px 15px!important;
+  grid-template-rows:34px auto auto!important;gap:3px 9px!important;
+}
+.pacno-section-grid .main-section-fold:not([open])>summary .fold-index{width:33px!important;height:33px!important;border-radius:10px!important}
+.pacno-section-grid .main-section-fold:not([open])>summary .fold-index svg{width:18px!important;height:18px!important}
+.pacno-section-grid .main-section-fold:not([open])>summary>strong{font-size:13.5px!important;line-height:1.2!important}
+.pacno-section-grid .main-section-fold:not([open])>summary .fold-description{font-size:10.5px!important;line-height:1.34!important}
+.pacno-section-grid .main-section-fold:not([open])>summary .fold-chevron{width:26px!important;height:26px!important;font-size:18px!important}
+/* El acceso horizontal a Servicios no debe quedar comprimido por estas reglas. */
+.pacno-section-grid>.services-section .main-section-fold:not([open])>summary.section-fold-summary{
+ min-height:76px!important;grid-template-rows:auto auto!important;grid-template-columns:42px minmax(0,1fr) 30px!important;
+}
+@media(max-width:1060px){
+  .pacno-section-grid .main-section-fold:not([open])>summary.section-fold-summary{min-height:108px!important}
+}
+@media(max-width:660px){
+  #fold-servicios .service-quote-cta{padding:14px;flex-direction:column;align-items:stretch;gap:11px}
+  #fold-servicios .service-quote-cta h3{font-size:16px}
+  #fold-servicios .service-quote-cta p{font-size:11.5px}
+  #fold-servicios .service-quote-open{width:100%;min-height:42px}
+  .pacno-section-grid .main-section-fold:not([open])>summary.section-fold-summary{
+     min-height:114px!important;padding:11px!important;grid-template-rows:30px auto auto!important;gap:3px 6px!important;
+  }
+  .pacno-section-grid .main-section-fold:not([open])>summary .fold-index{width:30px!important;height:30px!important}
+  .pacno-section-grid .main-section-fold:not([open])>summary .fold-index svg{width:17px!important;height:17px!important}
+  .pacno-section-grid .main-section-fold:not([open])>summary>strong{font-size:12px!important;line-height:1.2!important}
+  .pacno-section-grid .main-section-fold:not([open])>summary .fold-description{font-size:10px!important;line-height:1.26!important}
+  .pacno-section-grid>.services-section .main-section-fold:not([open])>summary.section-fold-summary{min-height:70px!important}
 }
