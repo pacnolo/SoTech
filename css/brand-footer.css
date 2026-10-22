@@ -1,0 +1,124 @@
+/* Pacno Tech 5.6: identidad P digital (opción 1) y footer más compacto.
+   Hoja independiente: no altera las reglas anteriores ni los scripts. */
+
+/* El PNG de la nueva marca tiene fondo transparente. */
+.site-header .brand img,
+.site-footer .footer-brand img {
+  background: transparent;
+  border-radius: 0;
+  object-fit: contain;
+}
+.about-mark img {
+  background: transparent;
+  object-fit: contain;
+}
+.site-header .brand .brand-accent,
+.site-footer .footer-brand .brand-accent {
+  color: #18bdf1;
+}
+
+/* Mantener el color del footer de extremo a extremo, pero
+   reducir su altura, el espacio interno y la separación de columnas. */
+.site-footer {
+  padding: 12px 0 8px;
+}
+.site-footer > .container {
+  max-width: 1050px;
+}
+.site-footer .footer-main {
+  grid-template-columns: minmax(0, 1.45fr) minmax(130px, .7fr) minmax(185px, .9fr);
+  gap: 22px;
+  padding-bottom: 7px;
+  align-items: start;
+}
+.site-footer .footer-brand {
+  gap: 8px;
+}
+.site-footer .footer-brand img {
+  width: 48px;
+  height: 48px;
+}
+.site-footer .footer-brand .brand-name {
+  font-size: 21px;
+  padding-bottom: 12px;
+}
+.site-footer .footer-brand .brand-name small {
+  font-size: 7px;
+  letter-spacing: .09em;
+}
+.site-footer .footer-social {
+  gap: 3px;
+}
+.site-footer .footer-social .social-icons {
+  gap: 7px;
+}
+.site-footer .footer-social .social-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+}
+.site-footer .footer-social .social-icon svg {
+  width: 18px;
+  height: 18px;
+}
+.site-footer .footer-social small {
+  font-size: 10px;
+  line-height: 1.2;
+}
+.site-footer .footer-main > div:last-child {
+  gap: 6px;
+}
+.site-footer .footer-main > div:last-child strong {
+  margin-bottom: 0;
+}
+.site-footer .footer-bottom {
+  padding-top: 6px;
+  gap: 10px;
+  font-size: 10px;
+  line-height: 1.3;
+}
+
+@media (max-width: 720px) {
+  .site-footer {
+    padding: 16px 0 10px;
+  }
+  .site-footer .footer-main {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 16px;
+    padding-bottom: 8px;
+  }
+  .site-footer .footer-main > div:first-child {
+    grid-column: 1 / -1;
+  }
+  .site-footer .footer-brand img {
+    width: 46px;
+    height: 46px;
+  }
+  .site-footer .footer-brand .brand-name {
+    font-size: 20px;
+  }
+  .site-footer .footer-main > div:last-child a {
+    overflow-wrap: anywhere;
+  }
+  .site-footer .footer-bottom {
+    padding-top: 7px;
+    gap: 6px;
+    line-height: 1.4;
+  }
+}
+@media (max-width: 370px) {
+  .site-footer .footer-brand img {
+    width: 44px;
+    height: 44px;
+  }
+  .site-footer .footer-main {
+    gap: 15px 12px;
+  }
+  .site-footer .footer-social .social-icons {
+    gap: 5px;
+  }
+  .site-footer .footer-social .social-icon {
+    width: 30px;
+    height: 30px;
+  }
+}

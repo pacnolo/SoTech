@@ -307,7 +307,13 @@
         const visible=entries.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio);
         if(visible.length){
           const name=visible[0].target.id;
-          if(currentNames[name])showCompanionMessage(currentNames[name]);
+          if(currentNames[name]){
+            // La mascota cambia suavemente de posición en escritorio para
+            // acompañar el recorrido sin cubrir el botón fijo de WhatsApp.
+            companion.dataset.zone=name;
+            companion.classList.toggle('is-side-right',name==='proceso'||name==='nosotros');
+            showCompanionMessage(currentNames[name]);
+          }
         }
       },{rootMargin:'-25% 0px -53% 0px',threshold:0});
       Object.keys(currentNames).forEach(id=>{

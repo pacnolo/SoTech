@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg class="chispa-standalone" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 250" role="img" aria-label="Chispa, pequeña llama turquesa sonriente con rostro azul oscuro">
+                    <defs>
+                      <linearGradient id="chispa-flame-gradient" x1="0" y1=".12" x2=".95" y2="1"><stop offset="0" stop-color="#E2FFFF"/><stop offset=".18" stop-color="#77F9FF"/><stop offset=".48" stop-color="#00DFF6"/><stop offset=".78" stop-color="#039DD2"/><stop offset="1" stop-color="#00759B"/></linearGradient>
+                      <radialGradient id="chispa-face-gradient" cx=".65" cy=".48" r=".75"><stop stop-color="#094A7B"/><stop offset=".58" stop-color="#00243F"/><stop offset="1" stop-color="#001528"/></radialGradient>
+                      <linearGradient id="chispa-orbit-gradient" x1="0" x2="1"><stop stop-color="#05A9E2" stop-opacity="0"/><stop offset=".36" stop-color="#30F4FA" stop-opacity=".95"/><stop offset=".75" stop-color="#B4FFFF"/><stop offset="1" stop-color="#0AE4FF" stop-opacity="0"/></linearGradient>
+                      <filter id="chispa-blur"><feGaussianBlur stdDeviation="7"/></filter>
+                      <filter id="chispa-soft-glow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                    </defs>
+                    <ellipse class="chispa-ground" cx="137" cy="230" rx="57" ry="8" fill="#1CDBEA" opacity=".36" filter="url(#chispa-blur)"/>
+                    <g class="chispa-ring"><ellipse cx="131" cy="157" rx="115" ry="39" transform="rotate(-18 131 157)" stroke="url(#chispa-orbit-gradient)" stroke-width="3" fill="none"/><path d="M26 173C54 223 188 217 244 142" fill="none" stroke="#58F9FC" opacity=".7" stroke-width="2" stroke-linecap="round"/></g>
+                    <g class="chispa-flame-group" filter="url(#chispa-soft-glow)">
+                      <path class="chispa-flame-body" d="M133 224 C99 223 79 202 68 181 C57 187 46 179 47 164 C58 172 69 156 63 141 C59 116 69 91 75 78 C77 101 91 100 99 74 C105 51 112 28 137 15 C130 48 155 55 164 31 C170 17 176 13 185 9 C174 35 184 45 196 38 C194 57 215 82 209 103 C231 124 240 151 225 184 C208 216 173 228 133 224 Z" fill="url(#chispa-flame-gradient)" stroke="#B9FFFF" stroke-width="2.5" stroke-linejoin="round"/>
+                      <path d="M137 19C121 62 139 74 152 73" fill="none" stroke="#FFFFFF" stroke-width="4" opacity=".68" stroke-linecap="round"/>
+                      <path d="M74 107 C70 141 78 162 96 178" fill="none" stroke="#CAFFFF" stroke-width="5" opacity=".78" stroke-linecap="round"/>
+                      <path d="M111 215 C154 237 203 201 217 169" fill="none" stroke="#E7FFFF" stroke-width="4" opacity=".65" stroke-linecap="round"/>
+                      <path d="M94 199 Q86 218 110 220" fill="none" stroke="#19BCEA" stroke-width="8" stroke-linecap="round"/>
+                      <path class="chispa-hand-left" d="M80 166Q57 157 49 147Q44 140 46 132" fill="none" stroke="#5FF4FF" stroke-width="12" stroke-linecap="round"/>
+                      <g class="chispa-hand-right"><path d="M214 160Q235 151 231 135" fill="none" stroke="#4CECF5" stroke-width="12" stroke-linecap="round"/><path d="M230 135l3-12M230 136l12-6" fill="none" stroke="#AFFFFF" stroke-width="7" stroke-linecap="round"/></g>
+                      <ellipse cx="163" cy="156" rx="60" ry="54" transform="rotate(-13 163 156)" fill="url(#chispa-face-gradient)" stroke="#41CBF8" stroke-width="2.5"/>
+                      <path d="M116 139q19-36 57-30" fill="none" stroke="#6FE8FF" opacity=".27" stroke-width="4" stroke-linecap="round"/>
+                      <g class="chispa-eyes" fill="#93FAFF" filter="url(#chispa-soft-glow)"><ellipse cx="143" cy="149" rx="7.5" ry="12" transform="rotate(-6 143 149)"/><ellipse cx="185" cy="139" rx="7.5" ry="12" transform="rotate(-6 185 139)"/></g>
+                      <path class="chispa-smile" d="M151 178q13 12 25-5" fill="none" stroke="#6AFBFA" stroke-width="4.4" stroke-linecap="round"/>
+                      <circle cx="121" cy="168" r="5" fill="#11E6FF" opacity=".32"/><circle cx="200" cy="160" r="5" fill="#11E6FF" opacity=".28"/>
+                    </g>
+                    <g class="chispa-particles" fill="#97FFFF"><circle cx="57" cy="77" r="3.1"/><circle cx="230" cy="84" r="2.5"/><circle cx="26" cy="192" r="2"/><circle cx="222" cy="206" r="3"/><path d="M225 54v14m-7-7h14" stroke="#66F8FF" stroke-width="3" stroke-linecap="round"/></g>
+                  </svg>
