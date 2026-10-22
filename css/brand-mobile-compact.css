@@ -1,0 +1,95 @@
+/* Pacno Tech 7.3 — compactación exclusiva de móviles.
+   Mantiene las funciones, la identidad y todos los apartados. */
+@media (max-width:600px) {
+  /* Encabezado y portada: menos desplazamiento para llegar a los servicios. */
+  .site-header .header-inner { min-height:62px; height:62px; padding-top:4px; padding-bottom:4px; }
+  .site-header .brand { gap:8px; }
+  .site-header .brand img { width:46px; height:46px; }
+  .site-header .brand-name { font-size:18px; line-height:1; }
+  .site-header .brand-name small { font-size:6.2px; letter-spacing:.13em; margin-top:5px; }
+  .hero-grid { padding:16px 0 16px; gap:12px; }
+  .hero-eyebrow { padding:6px 9px; font-size:8px; }
+  .hero-copy h1 { font-size:clamp(1.9rem,8.1vw,2.26rem); line-height:1.085; margin:11px auto 9px; }
+  .hero-lead { font-size:12px; line-height:1.48; margin-bottom:12px; }
+  .hero-buttons { gap:7px; }
+  .hero-buttons .btn { min-height:40px; padding:8px 11px; font-size:10.5px; }
+  .hero-highlights { margin-top:10px; gap:5px; }
+  .hero-highlights span { padding:5px 7px; font-size:8.5px; line-height:1.25; }
+  .hero-visual.hero-benefit-panel { margin:0 auto; }
+  .hero-benefit-panel .benefit-accordion-card { padding:4px; border-radius:15px!important; }
+  .hero-benefit-panel .benefit-card-top { padding:5px 8px!important; }
+  .hero-benefit-panel .chispa-intro {
+    min-height:170px;
+    grid-template-columns:minmax(0,.9fr) minmax(128px,1.1fr);
+    padding:12px 6px 10px 11px!important;
+  }
+  .hero-benefit-panel .chispa-intro-copy h2 { font-size:clamp(1.03rem,4.55vw,1.35rem); line-height:1.1; margin:5px 0; }
+  .hero-benefit-panel .chispa-intro-copy p { font-size:9px; line-height:1.35; margin:0; }
+  .hero-benefit-panel .chispa-stage { height:151px; }
+  .hero-benefit-panel .chispa-touch { width:155px; height:151px; }
+  .hero-benefit-panel .chispa-bubble { top:-3px; right:16%; font-size:8px; max-width:90px; }
+  .hero-benefit-panel .hero-benefit-list { padding:5px 0 0; gap:4px; }
+  .hero-benefit-panel .hero-benefit summary {
+    min-height:57px; padding:5px 2px; flex-direction:column;
+    gap:4px; text-align:center; align-items:center;
+  }
+  .hero-benefit-panel .hero-benefit-no { width:22px; height:22px; flex:0 0 22px; }
+  .hero-benefit-panel .hero-benefit-no svg { width:15px; height:15px; }
+  .hero-benefit-panel .hero-benefit-heading { min-width:0; width:100%; }
+  .hero-benefit-panel .hero-benefit-heading strong { font-size:9px; line-height:1.15; overflow-wrap:normal; }
+  .hero-benefit-panel .hero-benefit-heading small { display:none; }
+  .hero-benefit-panel .hero-benefit-body { padding:6px 7px 8px; }
+  .hero-benefit-panel .hero-benefit-body p { font-size:9.3px; line-height:1.4; }
+
+  /* Matriz de apartados: dos columnas compactas; texto completo en su modal. */
+  .pacno-section-hub { padding-top:8px; padding-bottom:14px; }
+  .pacno-section-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:7px; }
+  .pacno-section-grid .main-section-fold { border-radius:13px!important; }
+  .pacno-section-grid .main-section-fold:not([open]) > summary.section-fold-summary {
+    min-height:99px!important; padding:8px 9px!important;
+    grid-template-rows:26px auto auto!important; gap:2px 5px!important;
+  }
+  .pacno-section-grid .main-section-fold:not([open]) > summary .fold-index { width:26px!important; height:26px!important; border-radius:8px!important; }
+  .pacno-section-grid .main-section-fold:not([open]) > summary .fold-index svg { width:15px!important; height:15px!important; }
+  .pacno-section-grid .main-section-fold:not([open]) > summary .fold-chevron { width:23px!important; height:23px!important; font-size:15px!important; }
+  .pacno-section-grid .main-section-fold:not([open]) > summary > strong { font-size:11px!important; line-height:1.16!important; }
+  .pacno-section-grid .main-section-fold:not([open]) > summary .fold-description {
+    display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2;
+    overflow:hidden; font-size:9px!important; line-height:1.22!important;
+  }
+  .pacno-section-grid > .services-section .main-section-fold:not([open]) > summary.section-fold-summary {
+    min-height:60px!important; padding:8px 10px!important;
+    grid-template-columns:30px minmax(0,1fr) 24px!important;
+    grid-template-rows:auto auto!important; gap:2px 8px!important;
+  }
+  .pacno-section-grid > .services-section .main-section-fold:not([open]) > summary .fold-index { width:29px!important; height:29px!important; }
+  .pacno-section-grid > .services-section .main-section-fold:not([open]) > summary > strong { font-size:12px!important; }
+  .pacno-section-grid > .services-section .main-section-fold:not([open]) > summary .fold-description { font-size:9px!important; }
+
+  /* Chispa continúa viajando, pero sin tapar tarjetas ni llamadas a la acción. */
+  .chispa-companion,.chispa-companion.is-side-right {
+    left:5px; right:auto; bottom:max(74px,calc(env(safe-area-inset-bottom) + 65px));
+    width:72px; z-index:89;
+  }
+  .chispa-dock { height:70px; }
+  .chispa-dock-face { width:70px; height:70px; }
+  .chispa-dock-aura { inset:5px 0 0; }
+  .chispa-companion[data-zone="demos"], .chispa-companion[data-zone="contacto"] { bottom:max(74px,calc(env(safe-area-inset-bottom) + 65px)); }
+  .chispa-dock-speech,.chispa-companion.is-side-right .chispa-dock-speech {
+    left:61px; right:auto; top:-15px; max-width:min(150px,calc(100vw - 86px)); font-size:9px;
+  }
+  /* Los avisos automáticos se reservan para escritorio; en móvil, habla al tocarla. */
+  .chispa-companion:not(.is-reacting) .chispa-dock-speech { display:none!important; }
+  .chispa-companion.is-ui-busy .chispa-dock-face,.chispa-companion.is-form-active .chispa-dock-face { width:56px; height:56px; }
+  .chispa-companion.is-ui-busy .chispa-dock,.chispa-companion.is-form-active .chispa-dock { height:57px; }
+  .floating-whatsapp { width:46px; height:46px; right:12px; bottom:max(14px,env(safe-area-inset-bottom)); }
+}
+@media (max-width:365px) {
+  .hero-copy h1 { font-size:1.83rem; }
+  .hero-benefit-panel .chispa-intro { min-height:159px; grid-template-columns:minmax(0,1fr) minmax(117px,1fr); padding:9px 5px 9px 9px!important; }
+  .hero-benefit-panel .chispa-stage { height:143px; }
+  .hero-benefit-panel .chispa-touch { width:147px; height:142px; }
+  .pacno-section-grid .main-section-fold:not([open]) > summary.section-fold-summary { min-height:98px!important; }
+  .pacno-section-grid .main-section-fold:not([open]) > summary > strong { font-size:10.5px!important; }
+  .pacno-section-grid .main-section-fold:not([open]) > summary .fold-description { font-size:8.7px!important; }
+}
